@@ -69,7 +69,7 @@ const Configuration = () => {
           {(!agents || agents.length <= 0) && (
             <p className=" text-gray-500 py-8">
               <span className="text-lg">
-                <span className="font-bold">JACANA</span> Jacana facilitates the seamless migration of integrations from SAP PI/PO to CPI through an interactive user interface.
+                <span className="font-bold">JACANA</span> facilitates the seamless migration of integrations from SAP PI/PO to CPI through an interactive user interface.
 This migration tool is crafted to drastically reduce manual migration efforts and eliminate the possibility of human error in the process.
               </span>
               <br></br>

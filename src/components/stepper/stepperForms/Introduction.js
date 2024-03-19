@@ -15,25 +15,25 @@ const Introduction = () => {
           <ListItem disablePadding>
             <ListItemText
               primary="Step 1: Introduction"
-              secondary="Provides the guidelines to configure and connect PO and CPI with Jacana"
+              secondary="Provides the guidelines to configure and connect PO and CPI with Jacana."
             />
           </ListItem>
           <ListItem disablePadding>
             <ListItemText
               primary="Step 2: Process Orchestration"
-              secondary="Configure Jacana to connect with the PO tenant and test connectivity"
+              secondary="Configure Jacana to connect with the PO tenant and test connectivity."
             />
           </ListItem>
           <ListItem disablePadding>
             <ListItemText
               primary="Step 3: SAP Integration Suite"
-              secondary="Configure Jacana to connect with the CPI tenant and test connectivity"
+              secondary="Configure Jacana to connect with the CPI tenant and test connectivity."
             />
           </ListItem>
           <ListItem disablePadding>
             <ListItemText
               primary="Step 4: Integration Suite API"
-              secondary="Connect with Integration Suite APIs to leverage the different capbilites provided by SAP Integration Suite"
+              secondary="Connect with Integration Suite APIs to leverage the different capbilites provided by SAP Integration Suite."
             />
           </ListItem>
         </List>
