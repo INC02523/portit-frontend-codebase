@@ -36,7 +36,7 @@ function MigrationTool() {
             </h2>
           </div>
 
-          <div className="md:mt-36 mt-7 md:w-[100%] flex  flex-col md:flex-row w-[70%] mx-auto md:mx-0 justify-evenly gap-3">
+          <div className="md:mt-36 mt-7 md:w-[100%] flex  flex-col md:flex-row w-[70%] mx-auto md:mx-0 justify-evenly items-center">
             <div className="bg-[#3026B9] hover:bg-[#5c5cb3] transition duration-400 md:p-16 text-2xl font-bold text-center p-10 rounded-lg text-zinc-200  hover:cursor-pointer hover:shadow-lg ">
               Migration Assessment
             </div>

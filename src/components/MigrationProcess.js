@@ -120,10 +120,7 @@ function MigrationProcess() {
                 </h1>
               </div>
             </div>
-            <div className="heading">
-              <h2 className="px-10">Enters the Details Below</h2>
-            </div>
-            <div className="inputs flex justify-center items-center">
+            <div className="inputs items-center">
               <div className="input-group">
                 <label htmlFor="autocomplete-ico">Select ICO:</label>
                 <Autocomplete
