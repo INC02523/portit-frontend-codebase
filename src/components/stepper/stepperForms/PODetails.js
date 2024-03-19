@@ -68,7 +68,7 @@ const PODetails = ({
       // toast.error("Name already exists!", { autoClose: 2000 });
       isNameExists = 1;
       setIsInvalidName(true);
-      console.log("ERROERR PODETAILS - Name exist");
+      // console.log("ERROERR PODETAILS - Name exist");
     }
     if (!isNameExists) {
       setIsInvalidName(false);

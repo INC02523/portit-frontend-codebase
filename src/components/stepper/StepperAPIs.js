@@ -10,9 +10,10 @@ export const postApi = async (apiURL, toPostData) => {
     // console.log(res.data, "api response");
     return res;
   } catch (e) {
-    toast.error(e.message + " - " + e.name, {
-      position: toast.POSITION.TOP_CENTER,
-    });
+    // toast.error(e.message + " - " + e.name, {
+    //   position: toast.POSITION.TOP_CENTER,
+    // });
+    console.log("Axios error : ",e);
     return e;
   }
 };
