@@ -188,10 +188,10 @@ function MigrationProcess() {
               <ToastContainer />
 
               {loading && (
-                <div className="flex justify-center mt-4">
-                  <CircularProgress />
-                </div>
-              )}
+            <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+              <CircularProgress />
+            </div>
+          )}
 
               <Button
                 variant="contained"
