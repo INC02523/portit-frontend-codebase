@@ -1,0 +1,9 @@
+{
+  "short_name": "PIPO To CPI",
+  "name": "PIPO To CPI Migration Tool",
+  "icons": [],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

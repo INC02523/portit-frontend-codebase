@@ -1,0 +1,6 @@
+{
+  "/api/v1/connectivity/connect/esr": "/esr",
+  "/api/v1/connectivity/connect/id": "/id",
+  "/api/v1/connectivity/connect/is/api": "/api",
+  "/api/v1/connectivity/connect/is/cpi": "/cpi"
+}
