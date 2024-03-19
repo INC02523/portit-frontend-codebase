@@ -1,6 +1,6 @@
 import React from "react";
 import { Autocomplete } from "@material-ui/lab";
-import { TextField, Button } from "@material-ui/core";
+import { TextField, Button, CircularProgress } from "@material-ui/core";
 import axios from "axios";
 import Navbar from "./layout/Navbar";
 import { useState, useEffect } from "react";
@@ -11,7 +11,7 @@ import headerImg from "../data/images/Header-Banner.png";
 import { useNavigate } from "react-router-dom";
 
 function MigrationProcess() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [inputValue, setInputValue] = useState("");
   const [icos, setIcos] = useState([]);
   const [packages, setPackages] = useState([]);
@@ -22,6 +22,8 @@ function MigrationProcess() {
   const [errors, setErrors] = useState({
     integrationNameError: "",
   });
+
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     const selectedData = JSON.parse(localStorage.getItem("currAgent")) || {};
@@ -77,7 +79,7 @@ function MigrationProcess() {
     }
 
     setErrors(newErrors);
-
+    setLoading(true);
     if (formValid) {
       const postData = {
         poAgent: poData,
@@ -98,9 +100,11 @@ function MigrationProcess() {
         setInputValue("");
         setSelectedICO(null);
         setSelectedPackage(null);
+        setLoading(false);
         //navigate('/home');
         toast.success("Iflow Created Successfully");
       } catch (error) {
+        setLoading(false);
         toast.error("Error While Creating Iflow");
       }
     }
@@ -182,6 +186,12 @@ function MigrationProcess() {
               </div>
 
               <ToastContainer />
+
+              {loading && (
+                <div className="flex justify-center mt-4">
+                  <CircularProgress />
+                </div>
+              )}
 
               <Button
                 variant="contained"
