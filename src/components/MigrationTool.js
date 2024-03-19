@@ -18,16 +18,16 @@ function MigrationTool() {
   return (
     <>
       <Navbar>
-        <div className="md:w-[90%] mx-auto md:my-10 w-full">
+        <div className="md:w-[100%]   w-full">
           <div className="relative">
             <div className="">
               <img className="h-44 w-full" src={headerImg} alt="" />
             </div>
 
             <div className="absolute top-1/2 transform -translate-y-1/2 w-full md:left-0md:w-[60%] ">
-              <h2 className="md:text-5xl font-bold text-white text-3xl text-center md:text-left md:ml-2">
+              <h1 className="text-2xl md:text-5xl  mx-8 text-white">
                 PI/PO to CPI Migration Tool
-              </h2>
+              </h1>
             </div>
           </div>
 
@@ -38,7 +38,7 @@ function MigrationTool() {
             </h2>
           </div>
 
-          <div className="md:mt-5 mt-7 md:w-[75%] flex  flex-col md:flex-row w-[70%] mx-auto md:mx-0 justify-between gap-3">
+          <div className="md:mt-36 mt-7 md:w-[100%] flex  flex-col md:flex-row w-[70%] mx-auto md:mx-0 justify-evenly gap-3">
             <div className="bg-[#3026B9] hover:bg-[#5c5cb3] transition duration-400 md:p-16 text-2xl font-bold text-center p-10 rounded-lg text-zinc-200  hover:cursor-pointer hover:shadow-lg ">
               Migration Assessment
             </div>
