@@ -19,12 +19,10 @@ function MigrationTool() {
     <>
       <Navbar>
         <div className="md:w-[100%]   w-full">
-          <div className="relative">
-            <div className="">
-              <img className="h-44 w-full" src={headerImg} alt="" />
-            </div>
-
-            <div className="absolute top-1/2 transform -translate-y-1/2 w-full md:left-0md:w-[60%] ">
+          <div className="">
+            <div
+              className={`h-44 w-full bg-[length:100%_100%] bg-center mb-8 flex items-center   bg-no-repeat bg-[url(./data/images/header_graphic_img.png)]`}
+            >
               <h1 className="text-2xl md:text-5xl  mx-8 text-white">
                 PI/PO to CPI Migration Tool
               </h1>

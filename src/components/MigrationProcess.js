@@ -8,8 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Footer from "../components/layout/Footer";
 import { toast, ToastContainer } from "react-toastify";
 import headerImg from "../data/images/Header-Banner.png";
-import { useNavigate } from 'react-router-dom';
-
+import { useNavigate } from "react-router-dom";
 
 function MigrationProcess() {
   const navigate = useNavigate();
@@ -72,7 +71,8 @@ function MigrationProcess() {
     };
 
     if (!inputValue.trim()) {
-      newErrors.integrationNameError = "Integration Flow Name cannot be empty !!";
+      newErrors.integrationNameError =
+        "Integration Flow Name cannot be empty !!";
       formValid = false;
     }
 
@@ -100,7 +100,6 @@ function MigrationProcess() {
         setSelectedPackage(null);
         //navigate('/home');
         toast.success("Iflow Created Successfully");
-      
       } catch (error) {
         toast.error("Error While Creating Iflow");
       }
@@ -112,12 +111,13 @@ function MigrationProcess() {
       <Navbar>
         <form onSubmit={handleSubmit}>
           <div className="main-container">
-            <div className="container">
-              <div className="img-container">
-                <img src={headerImg} alt="" />
-              </div>
-              <div className="title">
-                <h2>PI/PO to CPI Migration Tool</h2>
+            <div className="">
+              <div
+                className={`h-44 w-full bg-[length:100%_100%] bg-center mb-8 flex items-center   bg-no-repeat bg-[url(./data/images/header_graphic_img.png)]`}
+              >
+                <h1 className="text-2xl md:text-5xl  mx-8 text-white">
+                  PI/PO to CPI Migration Tool
+                </h1>
               </div>
             </div>
             <div className="heading">
@@ -127,7 +127,7 @@ function MigrationProcess() {
               <div className="input-group">
                 <label htmlFor="autocomplete-ico">Select ICO:</label>
                 <Autocomplete
-                fullWidth
+                  fullWidth
                   id="autocomplete-ico"
                   options={icos}
                   getOptionLabel={(option) => option}
@@ -149,7 +149,7 @@ function MigrationProcess() {
               <div className="input-group">
                 <label htmlFor="autocomplete-package">Select Package:</label>
                 <Autocomplete
-                fullWidth
+                  fullWidth
                   id="autocomplete-package"
                   options={packages}
                   getOptionLabel={(option) => option.name}
@@ -168,7 +168,9 @@ function MigrationProcess() {
               </div>
 
               <div className="input-group">
-                <label htmlFor="integration-name">Enter Integration Flow Name:</label>
+                <label htmlFor="integration-name">
+                  Enter Integration Flow Name:
+                </label>
                 <TextField
                   id="integration-name"
                   variant="outlined"
