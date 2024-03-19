@@ -68,26 +68,21 @@ const Configuration = () => {
         <div className=" my-8">
           {(!agents || agents.length <= 0) && (
             <p className=" text-gray-500 py-8">
-              <span className="text-xl">
-                <span className="font-bold">JACANA</span> enables seamless migration, management and collaboration
-                across multiple cloud platforms with an intuitive solution. Tool
-                includes extensive collection of cloud migration and management
-                capabilities to tailor with customize migration solution to fit
-                with specific requirements.
+              <span className="text-lg">
+                <span className="font-bold">JACANA</span> Jacana facilitates the seamless migration of integrations from SAP PI/PO to CPI through an interactive user interface.
+This migration tool is crafted to drastically reduce manual migration efforts and eliminate the possibility of human error in the process.
               </span>
               <br></br>
               <br></br>
-              <span className="font-bold">Objective:-</span> <br></br>
+              <span className="font-bold">Salient Features</span> <br></br>
               
-              ⇾ Easy to collaborate with teams. <br></br>
-              ⇾ Easy automation to plan and execute migrations.<br></br> 
-              ⇾ Wide range of support for multi-cloud providers.<br></br>
-              ⇾ Safe migration process, preventing data loss and downtime. <br></br>
-              ⇾ Daily reporting and status updates with Centralized
-              dashboard. <br></br>
-              ⇾ Full security enablement including encryption, access controls and monitorinng
-              tools.<br></br>
-              ⇾ Automated optimization tool informs quick configuration set up for successful migrations.<br></br><br></br>
+              ⇾ Automated migration of PI/PO integrations to CPI. <br></br>
+              ⇾ Migrate multiple integrations simultaneously.<br></br> 
+              ⇾ Dynamic migration templates automatically applied by Jacana.<br></br>
+              ⇾ Migration report to validate the migrated and non-migrated components. <br></br>
+              ⇾ Migration support for components not available in SAP Migration - Value Mapping, Encoding-Decoding etc <br></br>
+              ⇾ Significant reduction in migration effort<br></br>
+              ⇾ Automatic implementation of error handling and payload logging across all integrations<br></br><br></br>
               
               <span className="font-bold">Want to Explore more? Try adding an agent below. </span>
             </p>

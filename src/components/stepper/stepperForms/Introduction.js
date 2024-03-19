@@ -9,33 +9,31 @@ const Introduction = () => {
           Welcome to the Agent Setup Wizard
         </Typography>
         <Typography variant="body1" paragraph>
-          This wizard will guide you through the setup of your intelligent
-          agent, a powerful tool designed to streamline your business processes
-          and boost productivity.
+        This wizard will guide you through the setup process to connect PO and CPI tenants with Jacana
         </Typography>
         <List>
           <ListItem disablePadding>
             <ListItemText
               primary="Step 1: Introduction"
-              secondary="Gain an understanding of the agent setup process and its advantages."
+              secondary="Provides the guidelines to configure and connect PO and CPI with Jacana"
             />
           </ListItem>
           <ListItem disablePadding>
             <ListItemText
-              primary="Step 2: Process Orchestration (PO)"
-              secondary="Configure your agent for seamless integration with your legacy Process Orchestration system."
+              primary="Step 2: Process Orchestration"
+              secondary="Configure Jacana to connect with the PO tenant and test connectivity"
             />
           </ListItem>
           <ListItem disablePadding>
             <ListItemText
-              primary="Step 3: Integration Suite Cloud Platform Integration (IS CPI)"
-              secondary="Migrate from Process Orchestration to the Integration Suite Cloud Platform Integration for enhanced data exchange capabilities."
+              primary="Step 3: SAP Integration Suite"
+              secondary="Configure Jacana to connect with the CPI tenant and test connectivity"
             />
           </ListItem>
           <ListItem disablePadding>
             <ListItemText
-              primary="Step 4: Integration Suite API (IS API)"
-              secondary="Extend your agent's functionality by integrating with external APIs (Application Programming Interfaces)."
+              primary="Step 4: Integration Suite API"
+              secondary="Connect with Integration Suite APIs to leverage the different capbilites provided by SAP Integration Suite"
             />
           </ListItem>
         </List>

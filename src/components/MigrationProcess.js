@@ -117,7 +117,7 @@ function MigrationProcess() {
           <div className="main-container">
             <div className="">
               <div
-                className={`h-44 w-full bg-[length:100%_100%] bg-center mb-8 flex items-center   bg-no-repeat bg-[url(./data/images/header_graphic_img.png)]`}
+                className={`h-44 w-full bg-[length:100%_100%] mb-8 bg-center flex items-center   bg-no-repeat bg-[url(./data/images/header_graphic_img.png)]`}
               >
                 <h1 className="text-2xl md:text-5xl  mx-8 text-white">
                   PI/PO to CPI Migration Tool
