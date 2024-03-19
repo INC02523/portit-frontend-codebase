@@ -68,22 +68,28 @@ const Configuration = () => {
         <div className=" my-8">
           {(!agents || agents.length <= 0) && (
             <p className=" text-gray-500 py-8">
-              SAP Process Integration (PI) and Process Orchestration (PO) are
-              pivotal middleware solutions in the SAP ecosystem, facilitating
-              seamless communication and data exchange between diverse systems
-              within an organization. SAP PI serves as an integration platform,
-              routing messages, transforming data formats, and enabling
-              communication between SAP and non-SAP systems. It comprises
-              components like the Integration Builder, Integration Directory,
-              and Integration Engine. SAP PO extends PI's capabilities by
-              incorporating Business Process Management (BPM) and Business Rules
-              Management (BRM). This combination allows organizations to not
-              only integrate systems but also model, execute, and monitor
-              end-to-end business processes. With enhanced monitoring and
-              analytics, PI/PO offers efficiency, flexibility, scalability, and
-              visibility, becoming integral to organizations seeking
-              streamlined, scalable, and insight-driven integration solutions in
-              their SAP landscapes.
+              <span className="text-xl">
+                <span className="font-bold">JACANA</span> enables seamless migration, management and collaboration
+                across multiple cloud platforms with an intuitive solution. Tool
+                includes extensive collection of cloud migration and management
+                capabilities to tailor with customize migration solution to fit
+                with specific requirements.
+              </span>
+              <br></br>
+              <br></br>
+              <span className="font-bold">Objective:-</span> <br></br>
+              
+              ⇾ Easy to collaborate with teams. <br></br>
+              ⇾ Easy automation to plan and execute migrations.<br></br> 
+              ⇾ Wide range of support for multi-cloud providers.<br></br>
+              ⇾ Safe migration process, preventing data loss and downtime. <br></br>
+              ⇾ Daily reporting and status updates with Centralized
+              dashboard. <br></br>
+              ⇾ Full security enablement including encryption, access controls and monitorinng
+              tools.<br></br>
+              ⇾ Automated optimization tool informs quick configuration set up for successful migrations.<br></br><br></br>
+              
+              <span className="font-bold">Want to Explore more? Try adding an agent below. </span>
             </p>
           )}
           <button

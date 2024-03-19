@@ -2,7 +2,6 @@ import Navbar from "./layout/Navbar";
 import { Link } from "react-router-dom";
 import Footer from "../components/layout/Footer";
 import React, { useEffect, useState } from "react";
-import headerImg from "../data/images/Header-Banner.png";
 
 function MigrationTool() {
   const [names, setNames] = useState(null);
