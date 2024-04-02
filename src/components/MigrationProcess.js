@@ -15,7 +15,7 @@ function MigrationProcess() {
   const [inputValue, setInputValue] = useState("");
   const [icos, setIcos] = useState([]);
   const [packages, setPackages] = useState([]);
-  const [selectedICO, setSelectedICO] = useState(null);
+  const [selectedICO, setSelectedICO] = useState([]);
   const [selectedPackage, setSelectedPackage] = useState(null);
   const [poData, setPoData] = useState({});
   const [cpiData, setCpiData] = useState({});
