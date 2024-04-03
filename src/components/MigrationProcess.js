@@ -1,6 +1,7 @@
 import React from "react";
 import { Autocomplete } from "@material-ui/lab";
 import { TextField, Button, CircularProgress } from "@material-ui/core";
+import { Checkbox, ListItemText, FormControlLabel } from '@material-ui/core';
 import axios from "axios";
 import Navbar from "./layout/Navbar";
 import { useState, useEffect } from "react";
@@ -101,7 +102,6 @@ function MigrationProcess() {
         setSelectedICO(null);
         setSelectedPackage(null);
         setLoading(false);
-        //navigate('/home');
         toast.success("Iflow Created Successfully");
       } catch (error) {
         setLoading(false);
@@ -128,6 +128,7 @@ function MigrationProcess() {
               <div className="input-group">
                 <label htmlFor="autocomplete-ico">Select ICO:</label>
                 <Autocomplete
+                  multiple
                   fullWidth
                   id="autocomplete-ico"
                   options={icos}
@@ -136,6 +137,14 @@ function MigrationProcess() {
                   onChange={(event, newValue) => {
                     setSelectedICO(newValue);
                   }}
+                  renderOption={(option, {selected})=>(
+                    <React.Fragment>
+                      <FormControlLabel 
+                        control={<Checkbox checked={selected} />}
+                        label={<ListItemText primary={option} />}
+                      />
+                    </React.Fragment>
+                  )}
                   renderInput={(params) => (
                     <TextField
                       {...params}

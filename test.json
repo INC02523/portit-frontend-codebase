@@ -1,0 +1,111 @@
+{
+  "contentType": "application/vnd.microsoft.card.adaptive",
+  "content": {
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.0",
+    "body": [
+      {
+        "type": "Container",
+        "items": [
+          {
+            "type": "TextBlock",
+            "text": "Error in CPI Production Tenant",
+            "weight": "bolder",
+            "size": "medium"
+          },
+          {
+            "type": "ColumnSet",
+            "columns": [
+              {
+                "type": "Column",
+                "width": "auto",
+                "items": [
+                  {
+                    "type": "Image",
+                    "url": "https://www.varian.com/themes/custom/varian/images/varian-logo-black.png",
+                    "size": "small",
+                    "style": "person"
+                  }
+                ]
+              },
+              {
+                "type": "Column",
+                "width": "stretch",
+                "items": [
+                  {
+                    "type": "TextBlock",
+                    "text": "${header.interfaceName}",
+                    "weight": "bolder",
+                    "wrap": true
+                  },
+                  {
+                    "type": "TextBlock",
+                    "spacing": "none",
+                    "text": "${header.errorDateTime}",
+                    "isSubtle": true,
+                    "wrap": true
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Container",
+        "items": [
+          {
+            "type": "TextBlock",
+            "text": "Error Message",
+            "weight": "bolder",
+            "wrap": true
+          },
+          {
+            "type": "TextBlock",
+            "text": "${header.exceptionMessage}",
+            "wrap": true
+          },
+          {
+            "type": "TextBlock",
+            "text": "Additional Details",
+            "weight": "bolder",
+            "wrap": true
+          },
+          {
+            "type": "FactSet",
+            "facts": [
+               {
+                "title": "Package Name:",
+                "value": "${header.packageName}"
+              },
+              {
+                "title": "Message Processing Log ID:",
+                "value": "${header.messageProcessingLogID}"
+              },
+              {
+                "title": "MPL Correlation ID:",
+                "value": "${header.mplCorrelationID}"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "type": "Action.ShowCard",
+        "title": "Open in CPI",
+        "card": {
+          "type": "AdaptiveCard",
+          "actions": [
+            {
+              "type": "Action.Submit",
+              "title": "OK"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
