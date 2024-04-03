@@ -53,8 +53,6 @@ code {
   flex-direction: column;
   gap: 6px;
   font-size: 1rem;
-  /* padding-top: 10px; */
-  /* border: 2px solid black; */
 }
 
 .input-group {
@@ -93,9 +91,6 @@ select {
 }
 [type="text"]:focus,
 [type="password"]:focus {
-  /* outline: none;
-  border: none;
-  border-color: red; */
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0
     calc(0px + var(--tw-ring-offset-width)) #000;
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow),

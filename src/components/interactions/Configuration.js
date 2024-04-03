@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import StepperModal from "./stepper/StepperModal";
+import StepperModal from "../stepper/StepperModal";
 import React, { useEffect, useState } from "react";
 
 const Configuration = () => {
@@ -76,13 +76,13 @@ This migration tool is crafted to drastically reduce manual migration efforts an
               <br></br>
               <span className="font-bold">Salient Features</span> <br></br>
               
-              ⇾ Automated migration of PI/PO integrations to CPI. <br></br>
+              ⇾ Significant reduction in migration effort.<br></br>
               ⇾ Migrate multiple integrations simultaneously.<br></br> 
+              ⇾ Automated migration of PI/PO integrations to CPI. <br></br>
               ⇾ Dynamic migration templates automatically applied by Jacana.<br></br>
               ⇾ Migration report to validate the migrated and non-migrated components. <br></br>
-              ⇾ Migration support for components not available in SAP Migration - Value Mapping, Encoding-Decoding etc <br></br>
-              ⇾ Significant reduction in migration effort<br></br>
-              ⇾ Automatic implementation of error handling and payload logging across all integrations<br></br><br></br>
+              ⇾ Automatic implementation of error handling and payload logging across all integrations.<br></br>
+              ⇾ Migration support for components not available in SAP Migration - Value Mapping, Encoding-Decoding etc.<br></br><br></br>
               
               <span className="font-bold">Want to Explore more? Try adding an agent below. </span>
             </p>

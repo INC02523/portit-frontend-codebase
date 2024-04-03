@@ -3,16 +3,13 @@ import { Autocomplete } from "@material-ui/lab";
 import { TextField, Button, CircularProgress } from "@material-ui/core";
 import { Checkbox, ListItemText, FormControlLabel } from '@material-ui/core';
 import axios from "axios";
-import Navbar from "./layout/Navbar";
+import Navbar from "../layout/Navbar";
 import { useState, useEffect } from "react";
 import "react-toastify/dist/ReactToastify.css";
-import Footer from "../components/layout/Footer";
+import Footer from "../layout/Footer";
 import { toast, ToastContainer } from "react-toastify";
-import headerImg from "../data/images/Header-Banner.png";
-import { useNavigate } from "react-router-dom";
 
 function MigrationProcess() {
-  // const navigate = useNavigate();
   const [inputValue, setInputValue] = useState("");
   const [icos, setIcos] = useState([]);
   const [packages, setPackages] = useState([]);

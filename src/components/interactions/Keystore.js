@@ -22,7 +22,7 @@ import {
 import axios from "axios";
 import { visuallyHidden } from "@mui/utils";
 import { PieChart } from "@mui/x-charts/PieChart";
-import Navbar from "./layout/Navbar";
+import Navbar from "../layout/Navbar";
 
 export default function Keystore() {
   const [order, setOrder] = useState("asc");

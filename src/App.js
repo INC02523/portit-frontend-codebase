@@ -1,10 +1,9 @@
-import "./App.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Home from "./pages/Home";
-import MigrationTool from "./components/MigrationTool";
-import MigrationProcess from "./components/MigrationProcess";
-import Keystore from "./components/Keystore";
-import SimpleTable from "./components/SimpleTable";
+import MigrationTool from "./components/interactions/MigrationTool";
+import MigrationProcess from "./components/interactions/MigrationProcess";
+import Keystore from "./components/interactions/Keystore";
+import SimpleTable from "./components/interactions/SimpleTable";
 import StartPage from "./components/StartPage";
 
 const router = createBrowserRouter([
@@ -12,7 +11,6 @@ const router = createBrowserRouter([
     path: "/",
     element: <StartPage />,
   },
-
   {
     path: "/home",
     element: <Home />,

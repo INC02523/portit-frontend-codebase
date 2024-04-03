@@ -1,6 +1,6 @@
-import Navbar from "./layout/Navbar";
+import Navbar from "../layout/Navbar";
 import { Link } from "react-router-dom";
-import Footer from "../components/layout/Footer";
+import Footer from "../layout/Footer";
 import React, { useEffect, useState } from "react";
 
 function MigrationTool() {

@@ -26,7 +26,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Switch from "@mui/material/Switch";
 import { visuallyHidden } from "@mui/utils";
 import { CircularProgress, Backdrop } from "@mui/material";
-import Navbar from "./layout/Navbar";
+import Navbar from "../layout/Navbar";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 
