@@ -10,7 +10,7 @@ import Footer from "../layout/Footer";
 import { toast, ToastContainer } from "react-toastify";
 
 function MigrationProcess() {
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState([]);
   const [icos, setIcos] = useState([]);
   const [packages, setPackages] = useState([]);
   const [selectedICO, setSelectedICO] = useState([]);
@@ -61,6 +61,21 @@ function MigrationProcess() {
     fetchIcoList();
     fetchPackageList();
   }, []);
+  
+  function handleInputChange(e) {
+      const values = e.target.value.split(",");
+      setInputValue(values);
+      // console.log(inputValue)
+  }
+
+  function handleIcoChange(event, newValue) {
+      setSelectedICO(newValue);
+  }
+
+  useEffect(() => {
+   console.log("inputInside UseEffect",inputValue);
+   console.log("inside Selected ICO", selectedICO)
+  }, [inputValue, selectedICO])
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -70,7 +85,7 @@ function MigrationProcess() {
       integrationNameError: "",
     };
 
-    if (!inputValue.trim()) {
+    if (!inputValue.length === 0) {
       newErrors.integrationNameError =
         "Integration Flow Name cannot be empty !!";
       formValid = false;
@@ -90,13 +105,14 @@ function MigrationProcess() {
       };
 
       try {
+        console.log("Post Data", postData);
         await axios.post(
-          "http://localhost:8080/api/v1/migration/designtime/migrate/ico/to/iflow",
+          "http://localhost:8080/api/v1/migration/designtime/migrate/ico/to/multipleiflow",
           postData
         );
 
-        setInputValue("");
-        setSelectedICO(null);
+        setInputValue([]);
+        setSelectedICO([]);
         setSelectedPackage(null);
         setLoading(false);
         toast.success("Iflow Created Successfully");
@@ -105,8 +121,9 @@ function MigrationProcess() {
         toast.error("Error While Creating Iflow");
       }
     }
+    
   };
-
+  
   return (
     <>
       <Navbar>
@@ -131,9 +148,7 @@ function MigrationProcess() {
                   options={icos}
                   getOptionLabel={(option) => option}
                   value={selectedICO}
-                  onChange={(event, newValue) => {
-                    setSelectedICO(newValue);
-                  }}
+                  onChange={(event, newValue) => handleIcoChange(event, newValue)}
                   renderOption={(option, {selected})=>(
                     <React.Fragment>
                       <FormControlLabel 
@@ -183,7 +198,7 @@ function MigrationProcess() {
                   variant="outlined"
                   fullWidth
                   value={inputValue}
-                  onChange={(e) => setInputValue(e.target.value)}
+                  onChange={(e) => handleInputChange(e)}
                   error={!!errors.integrationNameError}
                   helperText={errors.integrationNameError}
                   required
