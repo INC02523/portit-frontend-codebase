@@ -25,7 +25,6 @@ export const CreatePackage = () => {
       packageDetails: formData,
       agent: currAgent.apiData,
     }
-
     console.log("data to send", dataToSend);
 
     axios.post('http://localhost:8080/api/v1/migration/designtime/create/package', dataToSend).then(response => {

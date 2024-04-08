@@ -1,10 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Autocomplete } from "@material-ui/lab";
 import { TextField, Button, CircularProgress } from "@material-ui/core";
 import { Checkbox, ListItemText, FormControlLabel } from '@material-ui/core';
 import axios from "axios";
 import Navbar from "../layout/Navbar";
-import { useState, useEffect } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import Footer from "../layout/Footer";
 import { toast, ToastContainer } from "react-toastify";
@@ -66,7 +65,6 @@ function MigrationProcess() {
   function handleInputChange(e) {
       const values = e.target.value.split(",");
       setInputValue(values);
-      // console.log(inputValue)
   }
 
   function handleIcoChange(event, newValue) {
