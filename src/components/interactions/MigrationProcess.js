@@ -8,6 +8,7 @@ import { useState, useEffect } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import Footer from "../layout/Footer";
 import { toast, ToastContainer } from "react-toastify";
+import { CreatePackage } from "./CreatePackage";
 
 function MigrationProcess() {
   const [inputValue, setInputValue] = useState([]);
@@ -168,25 +169,32 @@ function MigrationProcess() {
                 />
               </div>
 
-              <div className="input-group">
-                <label htmlFor="autocomplete-package">Select Package:</label>
-                <Autocomplete
-                  fullWidth
-                  id="autocomplete-package"
-                  options={packages}
-                  getOptionLabel={(option) => option.name}
-                  value={selectedPackage}
-                  onChange={(event, newValue) => {
-                    setSelectedPackage(newValue);
-                  }}
-                  renderInput={(params) => (
-                    <TextField
-                      {...params}
-                      variant="outlined"
-                      placeholder="Select Package"
-                    />
-                  )}
-                />
+              <div className="input-group grid grid-cols-11 items-center justify-cente gap-2">
+                <div className="col-span-10">
+                  <div>
+                  <label htmlFor="autocomplete-package">Select Package:</label>
+                  <Autocomplete
+                    fullWidth
+                    id="autocomplete-package"
+                    options={packages}
+                    getOptionLabel={(option) => option.name}
+                    value={selectedPackage}
+                    onChange={(event, newValue) => {
+                      setSelectedPackage(newValue);
+                    }}
+                    renderInput={(params) => (
+                      <TextField
+                        {...params}
+                        variant="outlined"
+                        placeholder="Select Package"
+                      />
+                    )}
+                  />
+                  </div>
+                </div>
+                <div className="col-span-1 flex justify-center pt-5">
+                  <CreatePackage />
+                </div>
               </div>
 
               <div className="input-group">
