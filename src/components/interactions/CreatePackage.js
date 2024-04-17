@@ -1,7 +1,10 @@
-import { Button, Dialog, DialogTitle, DialogContent, DialogActions } from "@material-ui/core";
+import { Button, Dialog, DialogTitle, DialogContent, DialogActions, CircularProgress } from "@material-ui/core";
 import { useState } from "react";
 import axios from "axios";
-export const CreatePackage = () => {
+import "react-toastify/dist/ReactToastify.css";
+import { toast, ToastContainer } from "react-toastify";
+
+export const CreatePackage = ({ handleRefresh }) => {
   const [open, setOpen] = useState(false);
   const [formData, setFormData] = useState({
     Id: "",
@@ -9,7 +12,8 @@ export const CreatePackage = () => {
     Description: "",
     ShortText: "",
   });
-  
+  const [loading, setLoading] = useState(false); // Loading state
+
   const currAgent = JSON.parse(localStorage.getItem("currAgent")) || {};
 
   const handleOpen = () => {
@@ -20,33 +24,40 @@ export const CreatePackage = () => {
     setOpen(false);
   }
 
-  const handleCreate = () => {
+  const handleCreate = async () => {
+    setLoading(true); // Set loading to true when submitting
+
     const dataToSend = {
       packageDetails: formData,
       agent: currAgent.apiData,
     }
-    console.log("data to send", dataToSend);
 
-    axios.post('http://localhost:8080/api/v1/migration/designtime/create/package', dataToSend).then(response => {
-      if(response.status === 200) {
+    try {
+      const response = await axios.post('http://localhost:8080/api/v1/migration/designtime/create/package', dataToSend);
+
+      if (response.status === 200) {
         setFormData({
           Id: "",
           Name: "",
           Description: "",
           ShortText: "",
         });
-        console.log("Api call Successfull");
+        console.log("Api call Successful");
         handleClose();
+        handleRefresh();
+        toast.success("Package Created Successfully, Please Select it from the options")
       } else {
         console.error("Api call failed");
       }
-    }).catch(error => {
-      console.error("Error : ", error);
-    });
+    } catch (error) {
+      console.error("Error: ", error);
+    } finally {
+      setLoading(false); // Set loading to false after API call
+    }
   }
 
   const handleChange = (e) => {
-    const {name, value} = e.target;
+    const { name, value } = e.target;
     setFormData({
       ...formData,
       [name]: value
@@ -85,11 +96,19 @@ export const CreatePackage = () => {
           <Button onClick={handleClose} color="primary">
             Cancel
           </Button>
+          <ToastContainer />
           <Button onClick={handleCreate} color="primary">
             Submit
           </Button>
         </DialogActions>
       </Dialog>
+
+      {/* Loader */}
+      {loading && (
+        <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(0, 0, 0, 0.5)', zIndex: 9999 }}>
+          <CircularProgress color="primary" />
+        </div>
+      )}
     </div>
   );
 }
