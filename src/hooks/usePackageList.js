@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { toast } from 'react-toastify';
 
 const usePackageList = (apiData, refreshFlag) => {
   const [packages, setPackages] = useState([]);
@@ -12,7 +11,6 @@ const usePackageList = (apiData, refreshFlag) => {
       setLoading(false);
       return;
     }
-
     setLoading(true);
     axios.post("http://localhost:8080/api/v1/migration/designtime/get/package/list", apiData)
       .then(response => {

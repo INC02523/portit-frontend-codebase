@@ -29,7 +29,6 @@ function MigrationProcess() {
   const { icos} = useIcoList(poData);
   const { packages} = usePackageList(cpiData, refreshFlag);
   const { vms } = useValueMappingList(poData);
-  // console.log("Value mapping list", typeof vms);
 
   useEffect(() => {
     const selectedData = JSON.parse(localStorage.getItem("currAgent")) || {};
@@ -47,16 +46,12 @@ function MigrationProcess() {
   }
 
   function handleValueMapping(event, newValue) {
-    // console.log("value", newValue);
-  
-    // Check if newValue is an array (multiple selections) or a single value
     if (Array.isArray(newValue)) {
-      // console.log("Console is here")
       setSelectedValueMapping(newValue);
     } else if (newValue !== null) {
-      setSelectedValueMapping([newValue]); // Convert single value to array
+      setSelectedValueMapping([newValue]);
     } else {
-      setSelectedValueMapping([]); // Handle the case when nothing is selected
+      setSelectedValueMapping([]);
     }
   }
 
@@ -66,7 +61,6 @@ function MigrationProcess() {
 
   const handleVisible = (option) => {
     setSelectedOption(option);
-    // console.log(selectedOption);
   };
   
   const handleSubmit = async (event) => {
@@ -106,7 +100,7 @@ function MigrationProcess() {
           setInputValue([]);
           setSelectedICO([]);
           setSelectedPackage(null);
-          toast.success("IFlow Created Successfully");
+          toast.success("IFlow Migrated Successfully");
         } else if (selectedOption === 'packages') {
           const postData = {
             poAgent: poData,
@@ -125,14 +119,14 @@ function MigrationProcess() {
   
           setInputValue([]);
           setSelectedValueMapping([]);
-          toast.success("Value Mapping Created Successfully");
+          toast.success("Value Mapping Migrated Successfully");
         }
   
         setLoading(false);
         
       } catch (error) {
         setLoading(false);
-        toast.error("Error While Creating Value Mapping");
+        toast.error("Error While Migrating Value Mapping");
       }
     }
   };
@@ -143,15 +137,15 @@ function MigrationProcess() {
       <Navbar>
       <form onSubmit={handleSubmit}>
           <div className="main-container h-screen overflow-y-auto">
-            <div className="">
-              <div
-                className={`h-44 w-full bg-[length:100%_100%] mb-8 bg-center flex items-center   bg-no-repeat bg-[url(./data/images/header_graphic_img.png)]`}
-              >
-                <h1 className="text-2xl md:text-5xl  mx-8 text-white">
-                  PI/PO to CPI Migration Tool
-                </h1>
-              </div>
-            </div>
+          <div className="">
+          <div
+            className={`h-44 w-full bg-cover bg-center mb-8 flex items-center justify-center bg-no-repeat bg-[url(./data/images/header_graphic_img.png)]`}
+          >
+            <h1 className="text-2xl md:text-5xl text-center text-white font-serif font-extrabold">
+              PI/PO to CPI Migration Tool
+            </h1>
+          </div>
+        </div>
             <div className="inputs items-center">
             <div>
             <RadioGroup
@@ -299,7 +293,7 @@ function MigrationProcess() {
                 type="submit"
                 onClick={handleSubmit}
               >
-                Submit
+                Migrate
               </Button>
             </div>
           </div>

@@ -11,9 +11,6 @@ const useValueMappingList = (poData) => {
       setLoading(false);
       return ;
     }
-
-    // console.log("Value Mapping")
-
     setLoading(true);
     axios.post("http://localhost:8080/api/v1/metadata/get/vm/list", poData).then(response => {
       if(response.data && response.data.status === "Success") {

@@ -5,7 +5,6 @@ import MigrationProcess from "./components/interactions/MigrationProcess";
 import Keystore from "./components/interactions/Keystore";
 import SimpleTable from "./components/interactions/SimpleTable";
 import StartPage from "./components/StartPage";
-// import TestComponent from "./components/interactions/TestComponent"
 
 const router = createBrowserRouter([
   {
@@ -33,10 +32,6 @@ const router = createBrowserRouter([
     path: "/simpletable",
     element: <SimpleTable />,
   },
-  // {
-  //   path: "/test",
-  //   element: <TestComponent />
-  // }
 ]);
 
 function App() {
