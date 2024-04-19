@@ -1,8 +1,8 @@
 import {useState} from 'react';
 import axios from 'axios';
 
-const useXmlComparasion = () => {
-  const [comparisonResult, setComparionResult] = useState(null);
+const useXmlComparison = () => {
+  const [comparisonResult, setComparisonResult] = useState(null);
   const [errorMessage, setErrorMessage] = useState('');
 
   const compareXmlFiles = async(xmlFile1, xmlFile2) => {
@@ -16,8 +16,8 @@ const useXmlComparasion = () => {
           'Content-Type': 'multipart/form-data',
         },
       })
-      console.log('API Response:', response.data);
-      setComparionResult(response.data);
+      // console.log('API Response:', response.data);
+      setComparisonResult(response.data);
       setErrorMessage("");
     } catch {
       setErrorMessage('Error comparing XML files');
@@ -27,4 +27,4 @@ const useXmlComparasion = () => {
   return {comparisonResult, errorMessage, compareXmlFiles};
 };
 
-export default useXmlComparasion;
+export default useXmlComparison;

@@ -5,7 +5,9 @@ import MigrationProcess from "./components/interactions/MigrationProcess";
 import Keystore from "./components/interactions/Keystore";
 import SimpleTable from "./components/interactions/SimpleTable";
 import StartPage from "./components/StartPage";
-import { PayloadComparasion } from "./components/interactions/PayloadComparasion";
+import { PayloadComparison } from "./components/interactions/PayloadComparasion";
+import { XmlFileComparer } from "./components/interactions/XmlFileComparer";
+import { JsonFileComparer } from "./components/interactions/JsonFileComparer";
 
 const router = createBrowserRouter([
   {
@@ -34,8 +36,16 @@ const router = createBrowserRouter([
     element: <SimpleTable />,
   },
   {
-    path: '/payload-comparasion',
-    element: <PayloadComparasion />
+    path: '/payload-comparison',
+    element: <PayloadComparison />,
+  },
+  {
+    path: '/payload-comparison/xml-comparer',
+    element: <XmlFileComparer />,
+  },
+  {
+    path: '/payload-comparison/json-comparer',
+    element: <JsonFileComparer />
   }
 ]);
 

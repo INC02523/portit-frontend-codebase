@@ -48,9 +48,11 @@ function MigrationTool() {
               </div>
             </Link>
 
+            <Link to="/payload-comparison">
             <div className="bg-[#0070f2] hover:bg-[#3c72af] transition duration-400 md:p-16 text-2xl font-bold text-center p-10 rounded-lg text-zinc-200 hover:cursor-pointer hover:shadow-lg">
-              Payload Comparision
+              Payload Comparison
             </div>
+            </Link>
           </div>
         </div>
       </Navbar>
