@@ -5,6 +5,7 @@ import MigrationProcess from "./components/interactions/MigrationProcess";
 import Keystore from "./components/interactions/Keystore";
 import SimpleTable from "./components/interactions/SimpleTable";
 import StartPage from "./components/StartPage";
+import { PayloadComparasion } from "./components/interactions/PayloadComparasion";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
     path: "/simpletable",
     element: <SimpleTable />,
   },
+  {
+    path: '/payload-comparasion',
+    element: <PayloadComparasion />
+  }
 ]);
 
 function App() {
