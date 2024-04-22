@@ -12,6 +12,7 @@ import usePackageList from '../../hooks/usePackageList';
 import { Radio, RadioGroup } from '@material-ui/core';
 import  axios  from "axios";
 import useValueMappingList from "../../hooks/useValueMappingList";
+import Header from "../layout/Header";
 
 function MigrationProcess() {
   const [inputValue, setInputValue] = useState([]);
@@ -137,15 +138,7 @@ function MigrationProcess() {
       <Navbar>
       <form onSubmit={handleSubmit}>
           <div className="main-container h-screen overflow-y-auto">
-          <div className="">
-          <div
-            className={`h-44 w-full bg-cover bg-center mb-8 flex items-center justify-center bg-no-repeat bg-[url(./data/images/header_graphic_img.png)]`}
-          >
-            <h1 className="text-2xl md:text-5xl text-center text-white font-serif font-extrabold">
-              PI/PO to CPI Migration Tool
-            </h1>
-          </div>
-        </div>
+          <Header/>
             <div className="inputs items-center">
             <div>
             <RadioGroup

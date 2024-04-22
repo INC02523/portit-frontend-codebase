@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import StepperModal from "../stepper/StepperModal";
 import React, { useEffect, useState } from "react";
+import Header from "../layout/Header";
 
 const Configuration = () => {
   const [agents, setAgents] = useState([]);
@@ -46,15 +47,7 @@ const Configuration = () => {
 
   return (
     <>
-      <div className="">
-          <div
-            className={`h-44 w-full bg-cover bg-center mb-8 flex items-center justify-center bg-no-repeat bg-[url(./data/images/header_graphic_img.png)]`}
-          >
-            <h1 className="text-2xl md:text-5xl text-center text-white font-serif font-extrabold">
-              PI/PO to CPI Migration Tool
-            </h1>
-          </div>
-        </div>
+      <Header />
       <div className="sm:mx-12 md:mx-20 lg:mx-24 mx-4 mb-12 md:mb-20 lg:mb-24  md:text-lg text-base">
         {showStepper && (
           <StepperModal

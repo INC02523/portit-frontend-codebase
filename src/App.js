@@ -39,14 +39,6 @@ const router = createBrowserRouter([
     path: '/payload-comparison',
     element: <PayloadComparison />,
   },
-  {
-    path: '/payload-comparison/xml-comparer',
-    element: <XmlFileComparer />,
-  },
-  {
-    path: '/payload-comparison/json-comparer',
-    element: <JsonFileComparer />
-  }
 ]);
 
 function App() {

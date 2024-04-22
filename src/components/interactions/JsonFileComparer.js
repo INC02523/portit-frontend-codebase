@@ -1,6 +1,7 @@
 import { useState } from "react";
 import useJsonComparison from "../../hooks/useJsonComparison";
 import Navbar from "../layout/Navbar";
+import Header from "../layout/Header";
 
 export const JsonFileComparer = () => {
   const [json1, setJson1] = useState(null);
@@ -29,17 +30,9 @@ export const JsonFileComparer = () => {
 
   return (
     <>
-    <Navbar />
-    <div className="">
-       <div
-        className={`h-44 w-full bg-cover bg-center mb-8 flex items-center justify-center bg-no-repeat bg-[url(./data/images/header_graphic_img.png)]`}
-        >
-        <h1 className="text-2xl md:text-5xl text-center text-white font-serif font-extrabold">
-        PI/PO to CPI Migration Tool
-        </h1>
-        </div>
-      </div>
-      <div className="h-1/2 shadow-lg p-5 bg-slate-100 w-1/2 mx-auto">
+    {/* <Navbar /> */}
+    {/* <Header /> */}
+      <div className="h-full shadow-lg p-5 bg-slate-100 w-1/2 mx-auto">
       <h2 className="text-2xl mb-4 text-center font-bold underline">JSON FILE COMPARER</h2>
 
     <div className="flex flex-col justify-between">
@@ -58,8 +51,9 @@ export const JsonFileComparer = () => {
         Compare
       </button>
       <div>
-      {comparisonResult && <div className="bg-green-500 text-white px-4 py-2 mt-4 rounded text-center">{comparisonResult}</div>}
-      {errorMessage && <div className="bg-red-500 text-white px-4 py-2 mt-4 rounded text-center">Error: {errorMessage}</div>}
+      {comparisonResult  && <div className={`text-white px-4 py-2 mt-4 rounded text-center ${comparisonResult === "JSON files are equal." ? 'bg-green-500' : "bg-red-500"} `}>{comparisonResult}</div>}
+      {errorMessage !== '' && <div className="bg-red-500 text-white px-4 py-2 mt-4 rounded text-center">Error: {errorMessage}</div>}
+
       </div>
     </div>
 
