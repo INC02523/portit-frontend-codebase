@@ -20,7 +20,7 @@ export const XmlFileComparer = () => {
 
   const handleSubmit = async () => {
     if(!xml1 || !xml2) {
-      alert("Please select both XML files");
+      alert("Please upload both XML files");
       return;
     }
 

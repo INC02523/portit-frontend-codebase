@@ -19,7 +19,7 @@ export const JsonFileComparer = () => {
 
   const handleSubmit = async () => {
     if(!json1 || !json2) {
-      alert("Please select both JSON files");
+      alert("Please upload both JSON files");
       return ;
     }
 

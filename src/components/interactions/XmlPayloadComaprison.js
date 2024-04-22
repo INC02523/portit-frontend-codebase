@@ -51,7 +51,7 @@ const XmlPayloadComparison = () => {
       </div>
       <button
         onClick={handleSubmit}
-        className="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700"
+        className="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 font-bold text-xl w-1/4 mx-auto"
       >
         Compare
       </button>
