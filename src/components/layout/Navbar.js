@@ -8,7 +8,7 @@ const Navbar = (props) => {
   
   return (
     <>
-      <div className="p-4 shadow-xl flex items-center justify-between">
+      <div className="p-4 shadow-xl flex items-center justify-between bg-[rgb(238, 238, 238)]">
         <img src={inctureIcon} alt="inctureIcon" />
         <ul className="list-none flex align-middle tracking-wider space-x-10 ml-auto mr-10 font-semibold">
           <a href="/">

@@ -10,7 +10,7 @@ const StartPage = () => {
     <>
       <Navbar />
       
-      <div className="flex justify-evenly items-center bg-gradient-to-b from-blue-300 to-white h-full relative">
+      <div className="flex justify-evenly items-center bg-gradient-to-b from-blue-300 to-white h-screen relative">
         {/* Left Column */}
         <div className="absolute -top-24 left-0">
           <img

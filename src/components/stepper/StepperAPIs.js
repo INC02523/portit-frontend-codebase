@@ -22,11 +22,11 @@ export const handelTestConnection = (data, setDisableNext, setTestingConn) => {
   // ALERT DATA TO SHOW
   const alertShow = (type) => {
     if (type === "success") {
-      toast.success("Test-conn-Success!", {
+      toast.success("Connection Success!", {
         position: toast.POSITION.TOP_CENTER,
       });
     } else {
-      toast.error("Test-conn-Failed!", {
+      toast.error("Connection Failed!", {
         position: toast.POSITION.TOP_CENTER,
       });
     }
@@ -124,7 +124,7 @@ export const handelTestConnection = (data, setDisableNext, setTestingConn) => {
       })
       .catch((error) => {
         console.error("Error:", error);
-        toast.error("Test-conn-Failed!- " + error.message, {
+        toast.error("Connection Failed!- " + error.message, {
           position: toast.POSITION.TOP_CENTER,
         });
         setTestingConn(false);

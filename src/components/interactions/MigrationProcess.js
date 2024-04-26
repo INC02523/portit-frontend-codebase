@@ -127,7 +127,7 @@ function MigrationProcess() {
         
       } catch (error) {
         setLoading(false);
-        toast.error("Error While Migrating Value Mapping");
+        toast.error("Error While Migrating");
       }
     }
   };

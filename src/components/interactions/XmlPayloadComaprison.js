@@ -24,7 +24,7 @@ const XmlPayloadComparison = () => {
     } catch {
       setError("Error comparing XML files");
     } finally {
-      setLoading(false);
+      setLoading(false); 
     }
   };
 
