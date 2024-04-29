@@ -33,7 +33,7 @@ export const JsonFileComparer = () => {
     {/* <Navbar /> */}
     {/* <Header /> */}
       <div className="h-full shadow-lg p-5 bg-slate-100 w-1/2 mx-auto">
-      <h2 className="text-2xl mb-4 text-center font-bold underline">JSON FILE COMPARER</h2>
+      <h2 className="text-2xl mb-4 text-center font-bold underline">COMPARE JSON FILES</h2>
 
     <div className="flex flex-col justify-between">
       <div className="mb-1 flex flex-col ml-2">
