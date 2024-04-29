@@ -14,8 +14,8 @@ export const PayloadComparison = () => {
   }
 
   const componentMap = {
-    'Compare JSON Files': <JsonFileComparer />,
-    'Compare XML Files': <XmlFileComparer />,
+    'Compare JSON File': <JsonFileComparer />,
+    'Compare XML File': <XmlFileComparer />,
     'Compare JSON Payload': <JsonPayloadComparer />,
     'Compare XML Payload': <XmlPayloadComparison />,
   };
