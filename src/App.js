@@ -6,8 +6,6 @@ import Keystore from "./components/interactions/Keystore";
 import SimpleTable from "./components/interactions/SimpleTable";
 import StartPage from "./components/StartPage";
 import { PayloadComparison } from "./components/interactions/PayloadComparasion";
-import { XmlFileComparer } from "./components/interactions/XmlFileComparer";
-import { JsonFileComparer } from "./components/interactions/JsonFileComparer";
 
 const router = createBrowserRouter([
   {
@@ -18,7 +16,6 @@ const router = createBrowserRouter([
     path: "/home",
     element: <Home />,
   },
-
   {
     path: "/migration-tool",
     element: <MigrationTool />,

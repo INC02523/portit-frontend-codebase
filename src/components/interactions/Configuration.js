@@ -62,7 +62,7 @@ const Configuration = () => {
           {(!agents || agents.length <= 0) && (
             <p className=" text-gray-500 py-8">
               <span className="text-lg">
-                <span className="font-bold">JACANA</span> facilitates the seamless migration of integrations from SAP PO to CPI through an interactive user interface.
+                <span className="font-bold">JACANA</span> facilitates the seamless migration of integrations from SAP PO 7.5 to CPI through an interactive user interface.
 This migration tool is crafted to drastically reduce manual migration efforts and eliminate the possibility of human error in the process.
               </span>
               <br></br>
@@ -71,7 +71,7 @@ This migration tool is crafted to drastically reduce manual migration efforts an
               
               ⇾ Significant reduction in migration effort.<br></br>
               ⇾ Migrate multiple integrations simultaneously.<br></br> 
-              ⇾ Automated migration of PO integrations to CPI. <br></br>
+              ⇾ Automated migration of PO 7.5 integrations to CPI. <br></br>
               ⇾ Dynamic migration templates automatically applied by Jacana.<br></br>
               ⇾ Migration report to validate the migrated and non-migrated components. <br></br>
               ⇾ Automatic implementation of error handling and payload logging across all integrations.<br></br>
@@ -84,7 +84,7 @@ This migration tool is crafted to drastically reduce manual migration efforts an
             className="bg-[#3026B9] text-white  md:px-6 px-3  py-2 rounded-md  hover:bg-[#3026b9d3]"
             onClick={handleAddAgent}
           >
-            + &nbsp; Add User
+            + &nbsp; Add Tenant
           </button>
         </div>
         {/* TABLE */}
@@ -99,8 +99,8 @@ This migration tool is crafted to drastically reduce manual migration efforts an
                       id="agentHeader"
                     ></div>
                   </th>
-                  <th>PO User</th>
-                  <th>CPI User</th>
+                  <th>PO Tenant</th>
+                  <th>CPI Tenant</th>
                   <th></th>
                   <th></th>
                 </tr>

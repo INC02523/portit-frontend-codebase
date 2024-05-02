@@ -9,7 +9,7 @@ const Introduction = () => {
           Welcome to the Agent Setup Wizard
         </Typography>
         <Typography variant="body1" paragraph>
-        This wizard will guide you through the setup process to connect PO and CPI tenants with Jacana
+        This wizard will guide you through the setup process to connect PO 7.5 and CPI tenants with Jacana
         </Typography>
         <List>
           <ListItem disablePadding>

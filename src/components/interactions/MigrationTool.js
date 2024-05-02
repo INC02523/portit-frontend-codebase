@@ -33,7 +33,7 @@ function MigrationTool() {
           <div className="w-full lg:w-[70%] md:w-[50%] mt-5 mx-auto">
             <h2 className="text-center font-bold md:text-3xl font-serif underline">
               {names &&
-                `PO User Name : ${names?.poName} | CPI User Name : ${names?.cpiName}`}
+                `PO Tenant Name : ${names?.poName} | CPI Tenant Name : ${names?.cpiName}`}
             </h2>
           </div>
 
