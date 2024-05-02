@@ -91,7 +91,7 @@ const StepperModal = ({
           {/* Modal header */}
           <div className="flex flex-col items-start justify-between md:px-10 px-5 pt-4 border-b-2 rounded-t ">
             <h3 className="text-2xl  font-semibold text-gray-900 ">
-              Add Agent
+              Add User
             </h3>
 
             <Steps
