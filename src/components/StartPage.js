@@ -8,7 +8,7 @@ import Footer from "./layout/Footer";
 const StartPage = () => {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       
       <div className="flex justify-evenly items-center bg-gradient-to-b from-blue-300 to-white h-screen relative">
         {/* Left Column */}

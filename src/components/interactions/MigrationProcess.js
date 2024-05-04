@@ -14,6 +14,7 @@ import  axios  from "axios";
 import useValueMappingList from "../../hooks/useValueMappingList";
 import Header from "../layout/Header";
 import DownloadPdf from "./DownloadPdf";
+import MigrationReport from "./MigrationReport";
 
 function MigrationProcess() {
   const [inputValue, setInputValue] = useState([]);
@@ -30,10 +31,12 @@ function MigrationProcess() {
   const [selectedValueMapping, setSelectedValueMapping] = useState([]);
   const [refreshFlag, setRefreshFlag] = useState(false);
   const [responseData, setResponseData] = useState([]);
+  const [table, setTable] = useState([]);
+  const [showModal, setShowModal] = useState(false);
+  const [responseAvailable, setResponseAvailable] = useState(false);
   const { icos} = useIcoList(poData);
   const { packages} = usePackageList(cpiData, refreshFlag);
   const { vms } = useValueMappingList(poData);
-  const [table, setTable] = useState([]);
   
 
 
@@ -105,6 +108,14 @@ function MigrationProcess() {
   const handleVisible = (option) => {
     setSelectedOption(option);
   };
+
+  const handleShowModal = () => {
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
   
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -129,8 +140,10 @@ function MigrationProcess() {
         const response = await axios.post(endpoint, postData);
         console.log(response);
         if(response && selectedOption === 'icos') {
-          setResponseData(response.data);
+          setResponseData(response?.data?.responses);
+          setResponseAvailable(true);
           console.log(responseData)
+          console.log(responseAvailable);
         }
 
         // Reset form values and show success message
@@ -140,7 +153,8 @@ function MigrationProcess() {
         setTable([]);
         setInputValue([]);
         setLoading(false);
-        toast.success(response.data.responses[0]);
+        console.log("responses",response?.data?.responses);
+        toast.success(response.data.responses[0].status);
     } catch (error) {
       setLoading(false);
       if (selectedOption === 'icos' && (!selectedICO.length || !selectedPackage)) {
@@ -190,7 +204,6 @@ function MigrationProcess() {
                     <div className="input-group">
                         <label htmlFor="autocomplete-ico">Select ICO:</label>
                         <Autocomplete
-                            required
                             multiple
                             fullWidth
                             id="autocomplete-ico"
@@ -211,7 +224,7 @@ function MigrationProcess() {
                                     {...params}
                                     variant="outlined"
                                     placeholder="Select ICO"
-                                    required
+                                    // required
                                 />
                             )}
                         />
@@ -328,15 +341,39 @@ function MigrationProcess() {
                         <CircularProgress />
                     </div>
                 )}
-                <button
-                    // variant="contained"
-                    // color="primary"
-                    type="submit"
-                    className="bg-[#2c4b60]  text-white  md:px-5 px-6  py-4 rounded-sm  hover:bg-[#3b6978]"
-                    onClick={handleSubmit}
-                >
-                    Migrate
-                </button>
+                {console.log("Response Data", responseData)}
+                <MigrationReport
+                    isOpen={showModal}
+                    onClose={handleCloseModal}
+                    responseData={responseData}
+                />
+                <div className="flex justify-around w-[50%] flex-col md:flex-row">
+                    <div>
+                        <button
+                        type="submit"
+                        className="bg-[#2c4b60] text-white md:px-24 px-24 py-4 rounded-sm hover:bg-[#3b6978]"
+                        onClick={handleSubmit}
+                        
+                        >
+                        Migrate
+                        </button>
+                    </div>
+                    <div>
+                        <button
+                            className={`text-white md:px-8 px-6 py-4 rounded-sm ${
+                            !responseAvailable
+                              ? " bg-gray-400"
+                              : "bg-[#2c4b60] hover:bg-[#3b6978] transition duration-100"
+                          }`}
+                            onClick={handleShowModal}
+                            disabled={!responseAvailable}
+                            type="button"
+                        >
+                        View Migration Details
+                        </button>
+                    </div>
+                    </div>
+
             </div>
         </div>
     </form>
