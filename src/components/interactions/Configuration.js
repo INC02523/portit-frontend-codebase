@@ -156,7 +156,7 @@ const Configuration = () => {
         )}
         <div className={`${agents && agents.length > 0 ? 'flex justify-end gap-4' : 'flex justify-start gap-4'}`}>
         <button
-            className="bg-transparent border border-[#2c4b60] text-[#2c4b60]  md:px-6 px-3  py-2 hover:bg-[#3b6978] hover:text-white transition duration-100"
+            className="bg-transparent border border-[#2c4b60] text-[#2c4b60]  md:px-6 px-3  py-2 hover:bg-[#3b6978] hover:text-white transition duration-500"
             onClick={handleAddAgent}
           >
             + &nbsp; Add Tenant
@@ -171,7 +171,7 @@ const Configuration = () => {
               className={` text-white md:px-10 px-6 py-2 text-lg  border border-[#2c4b60] ${
                 !agentSelected
                   ? " bg-gray-400"
-                  : "bg-[#2c4b60] hover:bg-[#3b6978] transition duration-100"
+                  : "bg-[#2c4b60] hover:bg-[#3b6978] transition duration-500"
               }`}
               disabled={!agentSelected}
             >

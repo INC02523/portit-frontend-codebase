@@ -193,13 +193,13 @@ function MigrationProcess() {
                         <FormControlLabel
                             value="icos"
                             control={<Radio color="primary" />}
-                            label="Select ICOs"
+                            label="Migrate ICOs"
                             labelPlacement="end"
                         />
                         <FormControlLabel
                             value="packages"
                             control={<Radio color="primary" />}
-                            label="Select Value Mapping"
+                            label="Migrate Value Mapping"
                             labelPlacement="end"
                         />
                     </RadioGroup>
@@ -278,8 +278,8 @@ function MigrationProcess() {
                         </div>
                     </div>
                 )}
-                <div className="input-group grid grid-cols-11 items-center justify-cente gap-2">
-                    <div className="col-span-10">
+                <div className="input-group grid grid-cols-11 items-center justify-center">
+                    <div className="col-span-9">
                         <div>
                             <label htmlFor="autocomplete-package">Select Package:</label>
                             <Autocomplete
@@ -301,7 +301,7 @@ function MigrationProcess() {
                             />
                         </div>
                     </div>
-                    <div className="col-span-1 flex justify-center pt-5">
+                    <div className="md:col-span-2 flex justify-center mt-6 col-span-5">
                         <CreatePackage handleRefresh={handleRefresh} />
                     </div>
                 </div>

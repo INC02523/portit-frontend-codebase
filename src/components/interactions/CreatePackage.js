@@ -25,16 +25,22 @@ export const CreatePackage = ({ handleRefresh }) => {
   }
 
   const handleCreate = async () => {
+    // Check if any form field is empty
+    if (Object.values(formData).some(value => !value.trim())) {
+      toast.error("Please fill out all fields");
+      return;
+    }
+  
     setLoading(true); // Set loading to true when submitting
-
+  
     const dataToSend = {
       packageDetails: formData,
       agent: currAgent.apiData,
     }
-
+  
     try {
       const response = await axios.post('http://localhost:8080/api/v1/migration/designtime/create/package', dataToSend);
-
+  
       if (response.status === 200) {
         setFormData({
           Id: "",
@@ -55,6 +61,7 @@ export const CreatePackage = ({ handleRefresh }) => {
       setLoading(false); // Set loading to false after API call
     }
   }
+  
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -67,13 +74,14 @@ export const CreatePackage = ({ handleRefresh }) => {
   return (
     <div>
       <button 
-        className="border border-[#a2a2a2] bg-white  text-[#a2a2a2] md:px-5 px-2  py-1 rounded-sm hover:bg-[#3b6978] hover:text-white transition duration-100"
+        className="border border-[#a2a2a2] bg-white  text-[#a2a2a2] md:px-5 px-2  py-1 rounded-sm hover:bg-[#2c4b60] hover:text-white transition duration-500"
         // variant="contained"
         // color="primary"       
         onClick={handleOpen}
         style={{ padding: '15px 16px' }}
+        type='button'
       >
-        Create
+        Create New Package
       </button>
 
       <Dialog open={open} onClose={handleClose}>
@@ -94,13 +102,13 @@ export const CreatePackage = ({ handleRefresh }) => {
             ))}
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
+          <button onClick={handleClose} color="primary" className="bg-[#2c4b60] text-white md:px-5 py-2 rounded-sm hover:bg-[#3b6978]">
             Cancel
-          </Button>
+          </button>
           <ToastContainer />
-          <Button onClick={handleCreate} color="primary">
+          <button onClick={handleCreate} color="primary" className="bg-[#2c4b60] text-white md:px-5 py-2 rounded-sm hover:bg-[#3b6978]">
             Submit
-          </Button>
+          </button>
         </DialogActions>
       </Dialog>
 

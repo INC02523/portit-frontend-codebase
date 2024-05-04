@@ -47,7 +47,7 @@ export const JsonFileComparer = () => {
       </div>
     </div>
     <div className="flex justify-center flex-col mt-5 items-center">
-    <button onClick={handleSubmit} className="bg-blue-500 text-white px-4 py-2 rounded w-1/4 hover:bg-blue-700">
+    <button onClick={handleSubmit} className="bg-[#2c4b60] hover:bg-[#3b6978] transition duration-100 text-white px-4 py-2 rounded-sm w-1/4 ">
         Compare
       </button>
       <div>

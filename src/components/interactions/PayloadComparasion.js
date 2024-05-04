@@ -24,7 +24,7 @@ export const PayloadComparison = () => {
     <>
     <Navbar />
       <Header />
-        <div className=" w-full mx-auto justify-around gap-10 font-serif flex flex-col ">
+        <div className=" w-full mx-auto justify-around gap-10 font-serif flex flex-col mt-10">
 
           <div className="mx-auto  w-[90%] ml-20 mb-32">
             <div className="w-[50%] mx-auto">
