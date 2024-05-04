@@ -131,7 +131,7 @@ const StepperModal = ({
           <div className="flex md:justify-end justify-center md:px-10 px-6  py-3 space-x-2 border-t-2 border-gray-200 rounded-b ">
             {step !== 1 && (
               <button
-                className="bg-[#3026B9] text-white  md:px-5 px-2  py-1 rounded-md  hover:bg-[#3026b9d3]"
+                className="bg-[#2c4b60] text-white  md:px-5 px-2  py-1 rounded-sm  hover:bg-[#3b6978]"
                 onClick={handleBack}
               >
                 Back
@@ -140,10 +140,10 @@ const StepperModal = ({
 
             {step === 4 ? (
               <button
-                className={` text-white  md:px-5 px-2   py-1 rounded-md   ${
+                className={` text-white  md:px-5 px-2   py-1 rounded-sm   ${
                   disableNext && step !== 1
                     ? " bg-gray-400"
-                    : "bg-[#3026B9] hover:bg-[#3026b9d3]  "
+                    : "bg-[#2c4b60] hover:bg-[#3b6978]"
                 }`}
                 onClick={handleSubmitAgent}
                 disabled={disableNext && step !== 1}
@@ -152,10 +152,10 @@ const StepperModal = ({
               </button>
             ) : (
               <button
-                className={` text-white  md:px-5 px-2  py-1 rounded-md   ${
+                className={` text-white  md:px-5 px-2  py-1 rounded-sm   ${
                   disableNext && step !== 1
                     ? " bg-gray-400"
-                    : "bg-[#3026B9] hover:bg-[#3026b9d3]  "
+                    : "bg-[#2c4b60] hover:bg-[#3b6978]"
                 }`}
                 onClick={handleNext}
                 disabled={disableNext && step !== 1}
@@ -164,7 +164,7 @@ const StepperModal = ({
               </button>
             )}
             <button
-              className="bg-[#3026B9] text-white md:px-5 px-2 py-1 rounded-md  hover:bg-[#3026b9d3]"
+              className="bg-[#2c4b60] text-white md:px-5 px-2 py-1 rounded-sm  hover:bg-[#3b6978]"
               onClick={() => {
                 toggleStepper();
                 setEditingAgentIdx(-1);

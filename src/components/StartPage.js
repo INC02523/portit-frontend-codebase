@@ -20,7 +20,7 @@ const StartPage = () => {
             />
         </div>
         <div className="flex-1 flex justify-center">
-          <div className="flex flex-col items-center justify-center mt-16">
+          <div className="flex flex-col items-center justify-center mt-10">
             <h1
               className="text-9xl font-bold mb-4 ml-10 text-blue-700"
               style={{

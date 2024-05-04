@@ -58,35 +58,31 @@ const Configuration = () => {
           />
         )}
 
-        <div className=" my-8">
-          {(!agents || agents.length <= 0) && (
-            <p className=" text-gray-500 py-8">
-              <span className="text-lg">
-                <span className="font-bold">JACANA</span> facilitates the seamless migration of integrations from SAP PO 7.5 to CPI through an interactive user interface.
-This migration tool is crafted to drastically reduce manual migration efforts and eliminate the possibility of human error in the process.
-              </span>
-              <br></br>
-              <br></br>
-              <span className="font-bold">Salient Features</span> <br></br>
-              
-              ⇾ Significant reduction in migration effort.<br></br>
-              ⇾ Migrate multiple integrations simultaneously.<br></br> 
-              ⇾ Automated migration of PO 7.5 integrations to CPI. <br></br>
-              ⇾ Dynamic migration templates automatically applied by Jacana.<br></br>
-              ⇾ Migration report to validate the migrated and non-migrated components. <br></br>
-              ⇾ Automatic implementation of error handling and payload logging across all integrations.<br></br>
-              ⇾ Migration support for components not available in SAP Migration - Value Mapping, Encoding-Decoding etc.<br></br><br></br>
-              
-              <span className="font-bold">Want to Explore more? Try adding an agent below. </span>
-            </p>
-          )}
-          <button
-            className="bg-[#3026B9] text-white  md:px-6 px-3  py-2 rounded-md  hover:bg-[#3026b9d3]"
-            onClick={handleAddAgent}
-          >
-            + &nbsp; Add Tenant
-          </button>
-        </div>
+<div className="mt-4 text-gray-500">
+  {!agents || agents.length <= 0 ? (
+    <div className="py-8 text-lg">
+      <p className="mb-4">
+        <span className="font-bold text-lg">JACANA</span> facilitates the seamless migration of integrations from SAP PO 7.5 to CPI through an interactive user interface. This migration tool is crafted to drastically reduce manual migration efforts and eliminate the possibility of human error in the process.
+      </p>
+      <p className="mb-4">
+        <span className="font-bold">Salient Features</span>
+        <ul className="list-disc pl-6">
+          <li>Significant reduction in migration effort.</li>
+          <li>Migrate multiple integrations simultaneously.</li>
+          <li>Automated migration of PO 7.5 integrations to CPI.</li>
+          <li>Dynamic migration templates automatically applied by Jacana.</li>
+          <li>Migration report to validate the migrated and non-migrated components.</li>
+          <li>Automatic implementation of error handling and payload logging across all integrations.</li>
+          <li>Migration support for components not available in SAP Migration - Value Mapping, Encoding-Decoding etc.</li>
+        </ul>
+      </p>
+      <p>
+        <span className="font-bold">Want to Explore more? Try adding an agent below.</span>
+      </p>
+    </div>
+  ) : null}
+</div>
+ 
         {/* TABLE */}
         {agents && agents.length > 0 && (
           <div className=" text-left ">
@@ -99,8 +95,8 @@ This migration tool is crafted to drastically reduce manual migration efforts an
                       id="agentHeader"
                     ></div>
                   </th>
-                  <th>PO Tenant</th>
-                  <th>CPI Tenant</th>
+                  <th>PO TENANT</th>
+                  <th>CPI TENANT</th>
                   <th></th>
                   <th></th>
                 </tr>
@@ -110,10 +106,10 @@ This migration tool is crafted to drastically reduce manual migration efforts an
                   agents.length > 0 &&
                   agents.map((each, index) => {
                     return (
-                      <tr className="h-12" key={index}>
+                      <tr className="h-12 border border-gray-300" key={index}>
                         <th>
                           <input
-                            className=" cursor-pointer my-5 sm:mx-5 mx-2 h-[20px] w-[20px] "
+                            className="cursor-pointer my-5 sm:mx-5 mx-2 h-[20px] w-[20px] "
                             type="radio"
                             name="agentsSelect"
                             onChange={() => {
@@ -133,7 +129,7 @@ This migration tool is crafted to drastically reduce manual migration efforts an
                         </td>
                         <td>
                           <button
-                            className="bg-[#3026B9] text-white  md:px-5 px-2 mx-auto    rounded-md  hover:bg-[#3026b9d3]"
+                            className="bg-[#2c4b60] text-white  md:px-5 px-2 mx-auto    rounded-sm  hover:bg-[#3b6978]"
                             onClick={() => {
                               handleEditAgent(index);
                             }}
@@ -143,7 +139,7 @@ This migration tool is crafted to drastically reduce manual migration efforts an
                         </td>
                         <td>
                           <button
-                            className="bg-red-700 text-white  md:px-5 px-2 mx-auto rounded-md  hover:bg-red-800"
+                            className="bg-red-700 text-white  md:px-5 px-2 mx-auto rounded-sm hover:bg-red-800"
                             onClick={() => {
                               handleDeleteAgent(index);
                             }}
@@ -158,16 +154,24 @@ This migration tool is crafted to drastically reduce manual migration efforts an
             </table>
           </div>
         )}
+        <div className={`${agents && agents.length > 0 ? 'flex justify-end gap-4' : 'flex justify-start gap-4'}`}>
+        <button
+            className="bg-transparent border border-[#2c4b60] text-[#2c4b60]  md:px-6 px-3  py-2 hover:bg-[#3b6978] hover:text-white transition duration-100"
+            onClick={handleAddAgent}
+          >
+            + &nbsp; Add Tenant
+          </button>
         {agents && agents.length > 0 && (
           <Link
             to={"/migration-tool"}
             style={{ pointerEvents: !agentSelected && "none" }}
           >
+            
             <button
-              className={` text-white md:px-10 px-6 py-2 rounded-md text-lg  ${
+              className={` text-white md:px-10 px-6 py-2 text-lg  border border-[#2c4b60] ${
                 !agentSelected
                   ? " bg-gray-400"
-                  : "bg-[#3026B9] hover:bg-[#3026b9d3]"
+                  : "bg-[#2c4b60] hover:bg-[#3b6978] transition duration-100"
               }`}
               disabled={!agentSelected}
             >
@@ -175,6 +179,7 @@ This migration tool is crafted to drastically reduce manual migration efforts an
             </button>
           </Link>
         )}
+        </div>
       </div>
     </>
   );

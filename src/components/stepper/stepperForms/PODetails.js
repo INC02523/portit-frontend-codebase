@@ -21,6 +21,7 @@ const PODetails = ({
     port: currAgent && currAgent.poData ? currAgent.poData.port : "",
     username: currAgent && currAgent.poData ? currAgent.poData.username : "",
     status: "",
+  
   };
 
   const [agents, setagents] = useState([]);
@@ -252,7 +253,7 @@ const PODetails = ({
         </div>
         <div className="text-center">
           <button
-            className="bg-[#3026B9]  text-white  md:px-5 px-2  py-1 rounded-md  hover:bg-[#3026b9d3]"
+            className="bg-[#2c4b60]  text-white  md:px-5 px-2  py-1 rounded-sm  hover:bg-[#3b6978]"
             type="submit"
             disabled={testingConn}
           >

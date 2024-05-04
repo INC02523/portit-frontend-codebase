@@ -9,13 +9,14 @@ const usePackageList = (apiData, refreshFlag) => {
   useEffect(() => {
     if (!apiData) {
       setLoading(false);
+      console.log ("api data", apiData);
       return;
     }
     setLoading(true);
     axios.post("http://localhost:8080/api/v1/migration/designtime/get/package/list", apiData)
       .then(response => {
         if (response.data && response.data.status === "Success") {
-          setPackages(response.data.payload.list);
+          setPackages(response?.data?.payload?.list);
         } else {
           throw new Error("Invalid API Response");
         }
