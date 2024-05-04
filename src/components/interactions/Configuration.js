@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom";
 import StepperModal from "../stepper/StepperModal";
 import React, { useEffect, useState } from "react";
+import BorderColorIcon from '@mui/icons-material/BorderColor';
+import DeleteIcon from '@mui/icons-material/Delete';
+import CreateOutlinedIcon from '@mui/icons-material/CreateOutlined';
+import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
+import BorderColorOutlinedIcon from '@mui/icons-material/BorderColorOutlined';
 import Header from "../layout/Header";
 
 const Configuration = () => {
@@ -89,7 +94,7 @@ const Configuration = () => {
             <table className=" table-fixed border-2 w-full border-[#E0E0E0] my-5">
               <thead>
                 <tr className="bg-[#F5F5F5] ">
-                  <th className="w-[10%]">
+                  <th className="w-[15%]">
                     <div
                       className=" cursor-pointer my-5 mx-5 h-[20px] w-[20px] "
                       id="agentHeader"
@@ -109,7 +114,7 @@ const Configuration = () => {
                       <tr className="h-12 border border-gray-300" key={index}>
                         <th>
                           <input
-                            className="cursor-pointer my-5 sm:mx-5 mx-2 h-[20px] w-[20px] "
+                            className="cursor-pointer my-5 sm:mx-5 mx-2 h-[20px] w-[20px] checked:bg-[#2c4b60] checked:border-transparent focus:outline-none focus:ring-[#3b6978]"
                             type="radio"
                             name="agentsSelect"
                             onChange={() => {
@@ -127,24 +132,28 @@ const Configuration = () => {
                         <td className=" overflow-hidden">
                           {each?.cpiData?.name}
                         </td>
-                        <td>
+                        <td >
                           <button
-                            className="bg-[#2c4b60] text-white  md:px-5 px-2 mx-auto    rounded-sm  hover:bg-[#3b6978]"
+                            className="bg-[#2c4b60] text-white  md:px-4 py-1 px-2 mx-auto    rounded flex items-center justify-center  hover:bg-[#3b6978]"
                             onClick={() => {
                               handleEditAgent(index);
                             }}
                           >
-                            Edit
-                          </button>
+                            <span className="mr-2">Edit</span>
+                            {/* <BorderColorIcon /> */}
+                            {/* <CreateOutlinedIcon /> */}
+                            <BorderColorOutlinedIcon />
+                          </button>  
                         </td>
                         <td>
                           <button
-                            className="bg-red-700 text-white  md:px-5 px-2 mx-auto rounded-sm hover:bg-red-800"
+                            className="bg-red-700 text-white  md:px-4 py-1 px-2 mx-auto rounded flex items-center justify-center hover:bg-red-800"
                             onClick={() => {
                               handleDeleteAgent(index);
                             }}
                           >
                             Delete
+                            <DeleteIcon />
                           </button>
                         </td>
                       </tr>

@@ -69,7 +69,7 @@ const StepperModal = ({
         ? "Agent Details Edited Succesfully - Submitting... !"
         : "Agent Added Succesfully - Submitting... !",
       {
-        position: toast.POSITION.TOP_CENTER,
+        position: toast.POSITION.TOP_RIGHT,
       }
     );
     setEditingAgentIdx(-1);

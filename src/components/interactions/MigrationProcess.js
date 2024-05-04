@@ -192,13 +192,13 @@ function MigrationProcess() {
                     >
                         <FormControlLabel
                             value="icos"
-                            control={<Radio color="primary" />}
+                            control={<Radio style={{ color: '#2c4b60' }}/>}
                             label="Migrate ICOs"
                             labelPlacement="end"
                         />
                         <FormControlLabel
                             value="packages"
-                            control={<Radio color="primary" />}
+                            control={<Radio style={{ color: '#2c4b60' }}/>}
                             label="Migrate Value Mapping"
                             labelPlacement="end"
                         />
