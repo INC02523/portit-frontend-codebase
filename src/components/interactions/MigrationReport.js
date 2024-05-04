@@ -1,6 +1,33 @@
 import React from "react";
 
-const MigrationReport = ({ isOpen, onClose, responseData }) => {
+const MigrationReport = ({ isOpen, onClose, responseData, reportBase64 }) => {
+  const downloadReport = () => {
+    const blob = b64toBlob(reportBase64, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "migration_report.xlsx";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
+
+  const b64toBlob = (b64Data, contentType = "", sliceSize = 512) => {
+    const byteCharacters = atob(b64Data);
+    const byteArrays = [];
+    for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+      const slice = byteCharacters.slice(offset, offset + sliceSize);
+      const byteNumbers = new Array(slice.length);
+      for (let i = 0; i < slice.length; i++) {
+        byteNumbers[i] = slice.charCodeAt(i);
+      }
+      const byteArray = new Uint8Array(byteNumbers);
+      byteArrays.push(byteArray);
+    }
+    const blob = new Blob(byteArrays, { type: contentType });
+    return blob;
+  };
   return (
     <>
       {isOpen && (
@@ -48,7 +75,7 @@ const MigrationReport = ({ isOpen, onClose, responseData }) => {
               <button
                   type="button"
                   className="w-full inline-flex justify-center rounded-sm border border-transparent shadow-sm px-4 py-2 bg-[#2c4b60] text-base font-medium text-white hover:bg-[#3b6978] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#2c4b60] sm:ml-3 sm:w-auto sm:text-sm"
-                  onClick={onClose}
+                  onClick={downloadReport}
                 >
                   Download Report 
                 </button>

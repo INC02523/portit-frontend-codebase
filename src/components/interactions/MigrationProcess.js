@@ -34,6 +34,7 @@ function MigrationProcess() {
   const [table, setTable] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [responseAvailable, setResponseAvailable] = useState(false);
+  const [reportUrl, setReportUrl] = useState("");
   const { icos} = useIcoList(poData);
   const { packages} = usePackageList(cpiData, refreshFlag);
   const { vms } = useValueMappingList(poData);
@@ -141,9 +142,12 @@ function MigrationProcess() {
         console.log(response);
         if(response && selectedOption === 'icos') {
           setResponseData(response?.data?.responses);
+          setReportUrl(response?.data?.reportBase64)
           setResponseAvailable(true);
           console.log(responseData)
           console.log(responseAvailable);
+          console.log(response);
+          console.log("Report Url", reportUrl);
         }
 
         // Reset form values and show success message
@@ -346,6 +350,7 @@ function MigrationProcess() {
                     isOpen={showModal}
                     onClose={handleCloseModal}
                     responseData={responseData}
+                    reportBase64={reportUrl}
                 />
                 <div className="flex justify-around w-[50%] flex-col md:flex-row">
                     <div>
