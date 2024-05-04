@@ -86,7 +86,7 @@ export const CreatePackage = ({ handleRefresh }) => {
 
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Create Package</DialogTitle>
-        <DialogContent style={{ minWidth: '400px' }}>
+        <DialogContent style={{ minWidth: '600px' }}>
           {Object.entries(formData).map(([key, value]) => (
               <div key={key}>
                 <label htmlFor={key} style={{ textTransform: 'capitalize' }}>{key}</label><br />
