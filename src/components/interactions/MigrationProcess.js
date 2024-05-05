@@ -363,7 +363,7 @@ function MigrationProcess() {
                         Migrate
                         </button>
                     </div>
-                    <div>
+                    {selectedOption === 'icos' && (<div>
                         <button
                             className={`text-white md:px-8 px-6 py-4 rounded-sm ${
                             !responseAvailable
@@ -376,7 +376,9 @@ function MigrationProcess() {
                         >
                         View Migration Details
                         </button>
+                       
                     </div>
+                    )}
                     </div>
 
             </div>

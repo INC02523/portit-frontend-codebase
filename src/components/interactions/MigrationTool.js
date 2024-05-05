@@ -31,7 +31,7 @@ function MigrationTool() {
       setNames({
         poName: currAgent?.poData?.name,
         cpiName: currAgent?.cpiData.name,
-        adapters: currAgent.poData.adapters,
+        adapters: currAgent?.adapter,
       });
     }
 
@@ -72,6 +72,8 @@ function MigrationTool() {
 
     // console.log("payload",postData);
 
+    console.log("adapter Data",postData)
+
     if(postData ) {
       try {
         axios.post("http://localhost:8080/api/v1/migration/designtime/create/exception/adapter", postData).then(response => {
@@ -88,10 +90,27 @@ function MigrationTool() {
       handleClose();
       
       const currAgent = JSON.parse(localStorage.getItem("currAgent"));
-      currAgent.poData.adapters = dropdownValue;
-      localStorage.setItem('currAgent', JSON.stringify(currAgent));
-      window.location.href = "/migration-process"
+      const agent = JSON.parse(localStorage.getItem("agents"));
+      const agentIndex = agent.findIndex((a) => a?.poData?.name === currAgent?.poData?.name);
+
+      if (agentIndex !== -1) {
+        agent[agentIndex].adapter = dropdownValue;
+      }
+
+
+      localStorage.setItem('agents', JSON.stringify(agent));
+
+
+      
+      if (names.poName !== null && names.cpiName !== null) {
+        window.location.href = "/migration-process";
+        
+    } else {
+        toast.error("Please fill in all fields before proceeding.");
+    }
+    
   };
+
   return (
     <>
       <Navbar>
@@ -132,7 +151,7 @@ function MigrationTool() {
             </div> */}
             {
               names?.adapters?.length === 0 ? (
-                <button className="bg-[#0070f2] hover:bg-[#3c72af] transition duration-400 md:p-16 text-xl font-bold text-center p-10 rounded-lg text-zinc-200  hover:cursor-pointer hover:shadow-lg" onClick={handleOpen}>
+                <button className="bg-[#2c4b60] hover:bg-[#3b6978] transition duration-400 text-xl font-bold text-center text-white  hover:cursor-pointer hover:shadow-lg  w-52 h-44 flex justify-center items-center" onClick={handleOpen}>
                 MIGRATION PROCESS
                 
               </button>
@@ -224,10 +243,10 @@ function MigrationTool() {
         </div>
         </DialogContent>
         <DialogActions>
-          <button onClick={handleClose} className="bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-700">
+          <button onClick={handleClose} className="bg-[#2c4b60] text-white md:px-5 py-2 rounded-sm hover:bg-[#3b6978]">
             Cancel
           </button>
-          <button onClick={(e) => handleSubmit(e)} className="bg-blue-500 text-white px-6 py-2 rounded  hover:bg-blue-700">
+          <button onClick={(e) => handleSubmit(e)} className="bg-[#2c4b60] text-white md:px-5 py-2 rounded-sm hover:bg-[#3b6978]">
             Submit
           </button>
         </DialogActions>

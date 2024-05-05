@@ -22,11 +22,11 @@ const StartPage = () => {
         <div className="flex-1 flex justify-center">
           <div className="flex flex-col items-center justify-center mt-10">
             <h1
-              className="text-9xl font-bold mb-4 ml-10 text-blue-700"
+              className="text-9xl font-bold mb-4 ml-10 text-[#2c4b60]"
               style={{
                 fontWeight: "bold",
                 marginBottom: "0.5rem",
-                color: "#3182ce",
+                color: "#2c4b60",
                 textShadow: "3px 3px 5px rgba(0, 0, 0, 0.5)",
               }}
             >
@@ -37,11 +37,11 @@ const StartPage = () => {
               <span className="shine">N</span>
               <span className="shine">A</span>
             </h1>
-            <h2 className="text-2xl mb-4 ml-10 text-blue-500">
+            <h2 className="text-2xl mb-4 ml-10 text-[#2c4b60]">
               SAP PO 7.5 to CPI Migration Simplified
             </h2>
             <Link to="/home">
-              <button className="bg-blue-500 text-white rounded-full py-3 px-8 text-lg font-semibold ml-8 border border-blue-700 hover:bg-blue-800 transition-colors duration-300">
+              <button className="bg-[#2c4b60] text-white rounded-full py-3 px-8 text-lg font-semibold ml-8 hover:bg-[#3b6978] transition-colors duration-300">
                 Start Migration
               </button>
             </Link>

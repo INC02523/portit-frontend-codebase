@@ -102,6 +102,8 @@ const Configuration = () => {
                   </th>
                   <th>PO TENANT</th>
                   <th>CPI TENANT</th>
+                  <th>FROM</th>
+                  <th>TO</th>
                   <th></th>
                   <th></th>
                 </tr>
@@ -111,7 +113,7 @@ const Configuration = () => {
                   agents.length > 0 &&
                   agents.map((each, index) => {
                     return (
-                      <tr className="h-12 border border-gray-300" key={index}>
+                      <tr className="h-12 border border-gray-300" key={index} >
                         <th>
                           <input
                             className="cursor-pointer my-5 sm:mx-5 mx-2 h-[20px] w-[20px] checked:bg-[#2c4b60] checked:border-transparent focus:outline-none focus:ring-[#3b6978]"
@@ -132,9 +134,17 @@ const Configuration = () => {
                         <td className=" overflow-hidden">
                           {each?.cpiData?.name}
                         </td>
-                        <td >
+                        <td className=" overflow-hidden">
+                          {/* {each?.cpiData?.name} */}
+                          {each.poData.environment}
+                        </td>
+                        <td className=" overflow-hidden">
+                          {/* {each?.cpiData?.name} */}
+                          {each.cpiData.environment}
+                        </td>
+                        <td className="">
                           <button
-                            className="bg-[#2c4b60] text-white  md:px-4 py-1 px-2 mx-auto    rounded flex items-center justify-center  hover:bg-[#3b6978]"
+                            className="bg-[#2c4b60] text-white md:px-4 py-1 px-2 mx-auto rounded flex items-center justify-center  hover:bg-[#3b6978]"
                             onClick={() => {
                               handleEditAgent(index);
                             }}

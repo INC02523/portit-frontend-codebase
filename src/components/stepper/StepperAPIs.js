@@ -147,6 +147,7 @@ export const handelTestConnection = (data, setDisableNext, setTestingConn) => {
           const thisAgentNewData = {
             ...(thisAgentPrevData ? thisAgentPrevData : null),
             apiData: toPostData,
+            adapter: [],
           };
 
           localStorage.setItem("currAgent", JSON.stringify(thisAgentNewData));
