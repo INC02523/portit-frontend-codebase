@@ -101,9 +101,9 @@ const Configuration = () => {
                     ></div>
                   </th>
                   <th>PO TENANT</th>
+                  <th>PO ENV</th>
                   <th>CPI TENANT</th>
-                  <th>FROM</th>
-                  <th>TO</th>
+                  <th>CPI ENV</th>
                   <th></th>
                   <th></th>
                 </tr>
@@ -132,12 +132,13 @@ const Configuration = () => {
                           {each?.poData?.name}
                         </td>
                         <td className=" overflow-hidden">
-                          {each?.cpiData?.name}
-                        </td>
-                        <td className=" overflow-hidden">
                           {/* {each?.cpiData?.name} */}
                           {each.poData.environment}
                         </td>
+                        <td className=" overflow-hidden">
+                          {each?.cpiData?.name}
+                        </td>
+
                         <td className=" overflow-hidden">
                           {/* {each?.cpiData?.name} */}
                           {each.cpiData.environment}

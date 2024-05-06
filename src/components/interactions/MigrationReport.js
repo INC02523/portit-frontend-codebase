@@ -1,6 +1,14 @@
-import React from "react";
+import React, {useState} from "react";
+import { TableCell } from '@mui/material';
+import { CheckCircle, Cancel } from '@mui/icons-material';
 
 const MigrationReport = ({ isOpen, onClose, responseData, reportBase64 }) => {
+  const [search, setSearch] = useState('');
+
+  const filteredData = responseData.filter(response  => {
+    return response.message.toLowerCase().includes(search.toLowerCase()) || response.payload.toLowerCase().includes(search.toLowerCase()) ||
+    response.status.toLowerCase().includes(search.toLowerCase());
+  })
   const downloadReport = () => {
     const blob = b64toBlob(reportBase64, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
     const url = URL.createObjectURL(blob);
@@ -44,35 +52,52 @@ const MigrationReport = ({ isOpen, onClose, responseData, reportBase64 }) => {
                 <div className="sm:flex sm:items-start">
                   <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
                     <h3 className="text-lg font-bold mb-2">Migration Report</h3>
-                    <table className="border-collapse border border-gray-300 w-full">
+                    <div className="flex items-center justify-center">
+                      <input
+                        type="text"
+                        placeholder="Search ICO Name or Message"
+                        className="px-2 py-1 border border-gray-300 mb-4"
+                        style={{ width: '100%' }}
+                        value={search}
+                        onChange={(e) => setSearch(e.target.value)}
+                      />
+                    </div>
+                    <table className="border-collapse border border-gray-300 w-full" style={{ tableLayout: 'fixed', width: '100%' }}>
                       <thead className="bg-gray-50">
                         <tr>
-                          <th className="px-6 py-3 text-xs font-bold text-black uppercase tracking-wider border border-gray-300">Message</th>
-                          <th className="px-6 py-3 text-xs font-bold text-black uppercase tracking-wider border border-gray-300">ICO</th>
-                          <th className="px-6 py-3 text-xs font-bold text-black uppercase tracking-wider border border-gray-300">Status</th>
+                          <th className="px-6 py-3 text-xs font-bold text-black uppercase tracking-wider border border-gray-300 text-center">ICO NAME</th>
+                          <th className="px-6 py-3 text-xs font-bold text-black uppercase tracking-wider border border-gray-300 text-center">MESSAGE</th>
+                          <th className="px-6 py-3 text-xs font-bold text-black uppercase tracking-wider border border-gray-300 text-center">Status</th>
                         </tr>
                       </thead>
                       <tbody className="bg-white divide-y divide-gray-200">
-                        {responseData.map((response, index) => (
-                          <tr key={index} className={response.status === 'Success' ? 'bg-green-100' : 'bg-red-100'}>
-                            <td className="px-6 py-4 whitespace-wrap border border-gray-300">
-                              <div className="text-sm text-gray-900">{response.message}</div>
-                            </td>
-                            <td className="px-6 py-4 whitespace-wrap border border-gray-300">
-                              <div className="text-sm text-gray-900">{response.payload}</div>
-                            </td>
-                            <td className="px-6 py-4 whitespace-wrap border border-gray-300">
-                              <div className={`text-sm ${response.status === 'Success' ? 'text-green-700' : 'text-red-700'}`}>{response.status}</div>
-                            </td>
-                          </tr>
-                        ))}
+                          {filteredData.map((response, index) => (
+                              <tr key={index} className={response.status === 'Success' ? 'bg-green-100' : 'bg-red-100'}>
+                              <td className="px-6 py-4 whitespace-wrap border border-gray-300" style={{ wordWrap: 'break-word' }}>
+                                <div className="text-sm text-gray-900">{response.payload}</div>
+                              </td>
+                              <td className="px-6 py-4 whitespace-wrap border border-gray-300 text-center">
+                                <div className="text-sm text-gray-900">{response.message}</div>
+                              </td>
+                              <td className="px-6 py-4 whitespace-wrap border border-gray-300" >
+                                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' , lineHeight: '1.5rem' }}>
+                                {response.status === 'Success' ? (
+                                  <CheckCircle sx={{ color: 'green' }} />
+                                ) : (
+                                  <Cancel sx={{ color: 'red' }} />
+                                )}
+                                </div>
+                              </td>
+                            </tr>
+                          ))}
                       </tbody>
+
                     </table>
                   </div>
                 </div>
               </div>
               <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-              <button
+                <button
                   type="button"
                   className="w-full inline-flex justify-center rounded-sm border border-transparent shadow-sm px-4 py-2 bg-[#2c4b60] text-base font-medium text-white hover:bg-[#3b6978] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#2c4b60] sm:ml-3 sm:w-auto sm:text-sm"
                   onClick={downloadReport}

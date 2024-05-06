@@ -87,7 +87,7 @@ function MigrationTool() {
         toast.error("Failed to Create Services");
       }   
     }
-      handleClose();
+      
       
       const currAgent = JSON.parse(localStorage.getItem("currAgent"));
       const agent = JSON.parse(localStorage.getItem("agents"));
@@ -100,9 +100,10 @@ function MigrationTool() {
 
       localStorage.setItem('agents', JSON.stringify(agent));
 
-
+      handleClose();
       
       if (names.poName !== null && names.cpiName !== null) {
+        toast.success("Services Added")
         window.location.href = "/migration-process";
         
     } else {

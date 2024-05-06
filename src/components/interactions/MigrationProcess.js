@@ -35,6 +35,7 @@ function MigrationProcess() {
   const [showModal, setShowModal] = useState(false);
   const [responseAvailable, setResponseAvailable] = useState(false);
   const [reportUrl, setReportUrl] = useState("");
+  const [description , setDescription] = useState([]);
   const { icos} = useIcoList(poData);
   const { packages} = usePackageList(cpiData, refreshFlag);
   const { vms } = useValueMappingList(poData);
@@ -67,13 +68,19 @@ function MigrationProcess() {
     }
 
     axios.post("http://localhost:8080/api/v1/migration/designtime/get/iflow/details", conventionData).then(response => {
-      console.log("api called");
+    //   console.log("api called", response);
       const names = response?.data?.map(item => item?.iflowName);
+      const description = response?.data?.map(item => item?.description);
       // console.log("names : ",names);
       let updatedNames = [...names];
+      let descriptions = [...description];
+      
       // console.log("inputvalue: ",inputValue);
       setInputValue(updatedNames);
-      console.log("inputValue", updatedNames);
+      setDescription(descriptions)
+      console.log("Description ", description);     
+    //   console.log(description);
+    //   console.log("inputValue", updatedNames);
       setTable(response?.data);
       // console.log("tables", table);
 
@@ -123,7 +130,7 @@ function MigrationProcess() {
     setLoading(true);
 
     try {
-        const postData = {
+        let postData = {
             poAgent: poData,
             cpiAgent: cpiData,
             migrationDetails: {
@@ -135,6 +142,19 @@ function MigrationProcess() {
 
         console.log("Post Data", postData);
 
+        if(selectedOption === 'icos') {
+            postData = {
+                ...postData,
+                migrationDetails: {
+                    ...postData.migrationDetails,
+                    descriptions: description,
+                }
+            }
+
+            console.log("postData",postData);
+        }
+
+        console.log("pssig", postData);
         const endpoint = selectedOption === 'icos' 
             ? "http://localhost:8080/api/v1/migration/designtime/migrate/ico/to/multipleiflow"
             : "http://localhost:8080/api/v1/migration/designtime/migrate/ico/to/vm";
@@ -144,10 +164,10 @@ function MigrationProcess() {
           setResponseData(response?.data?.responses);
           setReportUrl(response?.data?.reportBase64)
           setResponseAvailable(true);
-          console.log(responseData)
-          console.log(responseAvailable);
-          console.log(response);
-          console.log("Report Url", reportUrl);
+        //   console.log(responseData)
+        //   console.log(responseAvailable);
+        //   console.log(response);
+        //   console.log("Report Url", reportUrl);
         }
 
         // Reset form values and show success message
@@ -158,7 +178,7 @@ function MigrationProcess() {
         setInputValue([]);
         setLoading(false);
         console.log("responses",response?.data?.responses);
-        toast.success(response.data.responses[0].status);
+        toast.success("Migration Process Completed");
     } catch (error) {
       setLoading(false);
       if (selectedOption === 'icos' && (!selectedICO.length || !selectedPackage)) {
