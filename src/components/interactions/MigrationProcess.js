@@ -182,7 +182,7 @@ function MigrationProcess() {
     } catch (error) {
       setLoading(false);
       if (selectedOption === 'icos' && (!selectedICO.length || !selectedPackage)) {
-          toast.error("Please enter the details for selected iCO and package.");
+          toast.error("Please enter the details for ICO and Package.");
       } else if(selectedOption === 'packages' && (!selectedValueMapping.length)) {
         toast.error("Please enter details for value mapping")
       }
@@ -283,7 +283,7 @@ function MigrationProcess() {
                         />
                         <div className="input-group">
                             <label htmlFor="integration-name">
-                                Enter Integration Flow Name:
+                                Enter Value Mapping Name:
                             </label>
                             <TextField
                                 id="integration-name"
@@ -293,7 +293,7 @@ function MigrationProcess() {
                                 onChange={(e) => handleInputValueChange(e)}
                                 error={!!errors.integrationNameError}
                                 helperText={errors.integrationNameError}
-                                placeholder="Enter Iflow Name"
+                                placeholder="Enter Value Mapping Name"
                             />
                         </div>
                     </div>
@@ -347,7 +347,7 @@ function MigrationProcess() {
                                         <td className="px-6 py-4 whitespace-nowrap border border-gray-300">
                                             <div className="text-sm text-gray-900 text-center">{index + 1}</div>
                                         </td>
-                                        <td className="px-6 py-4 whitespace-wrap border border-gray-300" style={{ maxWidth: "450px" }}>
+                                        <td className="px-6 py-4 whitespace-wrap border border-gray-300" style={{ maxWidth: "420px" }}>
                                             <div className="text-sm text-gray-900" style={{ wordWrap: 'break-word' }}>{item.iflowName}</div>
                                         </td>
                                         <td className="px-6 py-4 whitespace-wrap border border-gray-300" style={{ maxWidth: "150px" }}>

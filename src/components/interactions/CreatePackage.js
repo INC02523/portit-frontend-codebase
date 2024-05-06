@@ -74,7 +74,7 @@ export const CreatePackage = ({ handleRefresh }) => {
   return (
     <div>
       <button 
-        className="border border-[#a2a2a2] bg-white  text-[#a2a2a2] md:px-5 px-2  py-1 rounded-sm hover:bg-[#2c4b60] hover:text-white transition duration-500"
+        className="bg-[#2c4b60] text-white md:px-5 py-1 rounded-sm hover:bg-[#3b6978]  hover:text-white transition duration-100 border border-[#2c4b60]"
         // variant="contained"
         // color="primary"       
         onClick={handleOpen}
