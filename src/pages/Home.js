@@ -6,10 +6,10 @@ import Footer from "../components/layout/Footer";
 const Home = () => {
   return (
     <>
-      <Navbar>
+      {/* <Navbar> */}
       <Configuration />
       <Footer /> 
-      </Navbar>
+      {/* </Navbar> */}
     </>
   );
 };

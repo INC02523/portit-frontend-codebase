@@ -12,13 +12,13 @@ const StartPage = () => {
       
       <div className="flex justify-evenly items-center bg-gradient-to-b from-blue-300 to-white h-screen relative">
         {/* Left Column */}
-        <div className="absolute -top-24 left-0">
+        {/* <div className="absolute -top-24 left-0">
           <img
               src={logo}
               alt="Homepage"
               className="object-cover mt-20"
             />
-        </div>
+        </div> */}
         <div className="flex-1 flex justify-center">
           <div className="flex flex-col items-center justify-center mt-10">
             <h1
@@ -30,14 +30,14 @@ const StartPage = () => {
                 textShadow: "3px 3px 5px rgba(0, 0, 0, 0.5)",
               }}
             >
-              <span className="shine">J</span>
-              <span className="shine">A</span>
-              <span className="shine">C</span>
-              <span className="shine">A</span>
-              <span className="shine">N</span>
-              <span className="shine">A</span>
+              <span className="shine">P</span>
+              <span className="shine">O</span>
+              <span className="shine">r</span>
+              <span className="shine">t</span>
+              <span className="shine">I</span>
+              <span className="shine">T</span>
             </h1>
-            <h2 className="text-2xl mb-4 ml-10 text-[#2c4b60]">
+            <h2 className="text-xl mb-4 ml-10 text-[#2c4b60]">
               SAP PO 7.5 to CPI Migration Simplified
             </h2>
             <Link to="/home">

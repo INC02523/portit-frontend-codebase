@@ -17,6 +17,23 @@ code {
     monospace;
 }
 
+
+html {
+
+  overflow: scroll;
+
+  overflow-x: hidden;
+
+}
+ 
+::-webkit-scrollbar {
+
+  width: 0;
+
+  background: transparent;
+
+}
+
 .main-container {
   width: 100%;
 }

@@ -6,28 +6,28 @@ const Introduction = () => {
     <div className="md:text-base  text-sm md:p-10 p-5  space-y-6">
       <Box sx={{ marginTop: 2 }}>
         <Typography variant="h6" paragraph>
-          Welcome to the Agent Setup Wizard
+          Welcome to the Tenant Setup Wizard
         </Typography>
         <Typography variant="body1" paragraph>
-        This wizard will guide you through the setup process to connect PO 7.5 and CPI tenants with Jacana
+        This wizard will guide you through the setup process to connect PO 7.5 and CPI tenants with POrtIT
         </Typography>
         <List>
           <ListItem disablePadding>
             <ListItemText
               primary="Step 1: Introduction"
-              secondary="Provides the guidelines to configure and connect PO 7.5 and CPI with Jacana."
+              secondary="Provides the guidelines to configure and connect PO 7.5 and CPI with POrtIT."
             />
           </ListItem>
           <ListItem disablePadding>
             <ListItemText
               primary="Step 2: Process Orchestration"
-              secondary="Configure Jacana to connect with the PO 7.5 tenant and test connectivity."
+              secondary="Configure POrtIT to connect with the PO 7.5 tenant and test connectivity."
             />
           </ListItem>
           <ListItem disablePadding>
             <ListItemText
               primary="Step 3: SAP Integration Suite"
-              secondary="Configure Jacana to connect with the CPI tenant and test connectivity."
+              secondary="Configure POrtIT to connect with the CPI tenant and test connectivity."
             />
           </ListItem>
           <ListItem disablePadding>

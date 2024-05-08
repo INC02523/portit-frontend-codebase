@@ -22,7 +22,7 @@ export const PayloadComparison = () => {
 
   return (
     <>
-    <Navbar />
+    {/* <Navbar /> */}
       <Header />
         <div className=" w-full mx-auto justify-around gap-10 font-serif flex flex-col mt-10">
 

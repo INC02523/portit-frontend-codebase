@@ -67,7 +67,7 @@ const Configuration = () => {
   {!agents || agents.length <= 0 ? (
     <div className="py-8 text-lg">
       <p className="mb-4">
-        <span className="font-bold text-lg">JACANA</span> facilitates the seamless migration of integrations from SAP PO 7.5 to CPI through an interactive user interface. This migration tool is crafted to drastically reduce manual migration efforts and eliminate the possibility of human error in the process.
+        <span className="font-bold text-lg">POrtIT</span> facilitates the seamless migration of integrations from SAP PO 7.5 to CPI through an interactive user interface. This migration tool is crafted to drastically reduce manual migration efforts and eliminate the possibility of human error in the process.
       </p>
       <p className="mb-4">
         <span className="font-bold">Salient Features</span>
@@ -75,7 +75,7 @@ const Configuration = () => {
           <li>Significant reduction in migration effort.</li>
           <li>Migrate multiple integrations simultaneously.</li>
           <li>Automated migration of PO 7.5 integrations to CPI.</li>
-          <li>Dynamic migration templates automatically applied by Jacana.</li>
+          <li>Dynamic migration templates automatically applied by POrtIT.</li>
           <li>Migration report to validate the migrated and non-migrated components.</li>
           <li>Automatic implementation of error handling and payload logging across all integrations.</li>
           <li>Migration support for components not available in SAP Migration - Value Mapping, Encoding-Decoding etc.</li>
@@ -90,20 +90,20 @@ const Configuration = () => {
  
         {/* TABLE */}
         {agents && agents.length > 0 && (
-          <div className=" text-left ">
-            <table className=" table-fixed border-2 w-full border-[#E0E0E0] my-5">
+          <div className="flex items-center justify-center mt-10">
+            <table className=" table-fixed border w-full  my-5">
               <thead>
-                <tr className="bg-[#F5F5F5] ">
+                <tr className="bg-[#212529] text-center text-white">
                   <th className="w-[15%]">
                     <div
                       className=" cursor-pointer my-5 mx-5 h-[20px] w-[20px] "
                       id="agentHeader"
                     ></div>
                   </th>
-                  <th>PO TENANT</th>
-                  <th>PO ENV</th>
-                  <th>CPI TENANT</th>
-                  <th>CPI ENV</th>
+                  <th>PO Tenant</th>
+                  <th>PO Environment</th>
+                  <th>CPI Tenant</th>
+                  <th>CPI Environment</th>
                   <th></th>
                   <th></th>
                 </tr>
@@ -113,7 +113,7 @@ const Configuration = () => {
                   agents.length > 0 &&
                   agents.map((each, index) => {
                     return (
-                      <tr className="h-12 border border-gray-300" key={index} >
+                      <tr className={`h-12 text-center ${index % 2 === 0 ? '' : 'bg-gray-100'}`} key={index}>
                         <th>
                           <input
                             className="cursor-pointer my-5 sm:mx-5 mx-2 h-[20px] w-[20px] checked:bg-[#2c4b60] checked:border-transparent focus:outline-none focus:ring-[#3b6978]"
@@ -166,6 +166,7 @@ const Configuration = () => {
                             Delete
                             <DeleteIcon />
                           </button>
+                          
                         </td>
                       </tr>
                     );

@@ -66,8 +66,8 @@ const StepperModal = ({
     setAgents(JSON.parse(localStorage.getItem("agents")));
     toast.success(
       editingAgentIdx >= 0 && allPrevAgents
-        ? "Agent Details Edited Succesfully - Submitting... !"
-        : "Agent Added Succesfully - Submitting... !",
+        ? "Tenant Details Edited Succesfully - Submitting... !"
+        : "Tenant Added Succesfully - Submitting... !",
       {
         position: toast.POSITION.TOP_RIGHT,
       }
