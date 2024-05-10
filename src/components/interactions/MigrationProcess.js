@@ -29,6 +29,11 @@ function MigrationProcess() {
   const [inputValue, setInputValue] = useState([]);//
   const [description, setDescription] = useState([]);//
   const [selectedICO, setSelectedICO] = useState([]);
+  const [formData, setFormData] = useState({
+    iflowName: '',
+    iflowDescription: '',
+    selectedICO: '',
+  });
   const [valueMaping, setValueMaping] = useState([]);
   const [selectedPackage, setSelectedPackage] = useState(null);
   const [poData, setPoData] = useState({});//
@@ -58,8 +63,8 @@ function MigrationProcess() {
   }, []);
 
   useEffect(() => {
-    console.log("Input Value Change useEffect", inputValue);
-  }, [selectedICO, inputValue]);
+    // console.log("Input Value Change useEffect", inputValue);
+  }, [selectedICO, inputValue, formData]);
 
   function handleInputValueChange(e) {
     const values = e.target.value.split(",");
@@ -69,7 +74,10 @@ function MigrationProcess() {
   function handleIcoChange(event, newValue) {
     setSelectedICO(newValue);
 
-    const conventionData = { poAgent: poData, icoKey: newValue };
+    const conventionData = { 
+      poAgent: poData, 
+      icoKey: newValue 
+    };
 
     axios.post("http://localhost:8080/api/v1/migration/designtime/get/iflow/details", conventionData).then(response => {
       const names = response?.data?.map(item => item?.iflowName);
@@ -79,9 +87,16 @@ function MigrationProcess() {
       setInputValue(updatedNames);
       setDescription(descriptions);
       setTable(response?.data);
+      setFormData({
+        iflowName: names,
+        iflowDescription: description,
+        selectedICO: newValue,
+      })
+      
     }).catch(error => {
       console.log("error", error);
     });
+    console.log("Form data", formData);
   }
 
   function handleValueMapping(event, newValue) {
@@ -114,50 +129,78 @@ function MigrationProcess() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     setLoading(true);
-
+  
+    // Check if either selectedICO or selectedPackage is empty for 'icos' option
+    if (selectedOption === 'icos' && (!selectedICO.length || !selectedPackage)) {
+      setLoading(false); // Stop loading
+      toast.error("Please enter the details for ICO and Package.");
+      return; // Exit the function early
+    }
+  
     try {
-      let postData = 
-      { 
+      const {iflowName, iflowDescription, selectedICO} = formData
+      const iflowList = iflowName.map((name, index) => ({
+        icoKey: selectedICO[index],
+        integrationName: name,
+        descrption: iflowDescription[index]
+      }));
+
+      let payload = {
+        poAgent: poData,
+        cpiAgent: cpiData,
+        migrationDetails: {
+          artifactList: [
+            iflowList,
+          ]
+        }
+      }
+      console.log("new payload",payload);
+      let postData = { 
         poAgent: poData, 
         cpiAgent: cpiData,
         migrationDetails: { 
-            iCOKey: selectedOption === 'icos' ? selectedICO : selectedValueMapping, 
-            packageId: selectedPackage.id, 
-            integrationName: selectedOption === 'icos' ? inputValue : valueMaping } 
+          iCOKey: selectedOption === 'icos' ? selectedICO : selectedValueMapping, 
+          packageId: selectedPackage.id, 
+          integrationName: selectedOption === 'icos' ? inputValue : valueMaping 
+        } 
       };
-
+  
       if (selectedOption === 'icos') {
-        postData = { ...postData, migrationDetails: { ...postData.migrationDetails, descriptions: description } };
+        postData.migrationDetails.descriptions = description;
       }
-
-      const endpoint = selectedOption === 'icos' ? "http://localhost:8080/api/v1/migration/designtime/migrate/ico/to/multipleiflow" : "http://localhost:8080/api/v1/migration/designtime/migrate/ico/to/vm";
+  
+      const endpoint = selectedOption === 'icos' ? 
+        "http://localhost:8080/api/v1/migration/designtime/migrate/ico/to/multipleiflow" : 
+        "http://localhost:8080/api/v1/migration/designtime/migrate/ico/to/vm";
+  
       const response = await axios.post(endpoint, postData);
-
+  
       if (response && selectedOption === 'icos') {
         setResponseData(response?.data?.responses);
         setReportUrl(response?.data?.reportBase64);
         setResponseAvailable(true);
       }
-
+  
+      // Reset states
       setSelectedICO([]);
       setSelectedPackage(null);
       setSelectedValueMapping([]);
       setTable([]);
       setInputValue([]);
       setDescription([]);
+  
       setLoading(false);
       toast.success("Migration Process Completed");
     } catch (error) {
       setLoading(false);
-      if (selectedOption === 'icos' && (!selectedICO.length || !selectedPackage)) {
-        toast.error("Please enter the details for ICO and Package.");
-      } else if (selectedOption === 'packages' && (!selectedValueMapping.length)) {
+      if (selectedOption === 'packages' && (!selectedValueMapping.length)) {
         toast.error("Please enter details for value mapping");
       } else {
         toast.error("Error occurred while migrating.");
       }
     }
   };
+  
 
   const handleEdit = (e, index) => {
     e.preventDefault();
@@ -268,6 +311,10 @@ function MigrationProcess() {
                 <CreatePackage handleRefresh={handleRefresh} />
               </div>
             </div>
+            <div>
+  {}
+</div>
+
             {table.length > 0 && selectedOption === 'icos' && (
               <table className="w-full border border-collapse border-gray-300 sticky top-0 overflow-auto max-h-[180px]">
                 <thead className="bg-[#E0E0E0] sticky top-0">
@@ -293,9 +340,7 @@ function MigrationProcess() {
                       <td>
                       <div className="flex items-center justify-center">
                         <button onClick={(e) => handleEdit(e, index)}>
-                            
                             <BorderColorOutlinedIcon />
-                           
                         </button>
                         </div>
                       </td>
