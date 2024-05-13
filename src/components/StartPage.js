@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar from "../components/layout/Navbar";
 import homepageImage from "../data/images/homepageImage.svg";
 import logo from "../data/images/Jacana_Logo-removebg-preview.png";
 import { Link } from "react-router-dom";
@@ -8,7 +7,6 @@ import Footer from "./layout/Footer";
 const StartPage = () => {
   return (
     <>
-      {/* <Navbar /> */}
       
       <div className="flex justify-evenly items-center bg-gradient-to-b from-blue-300 to-white h-screen relative">
         {/* Left Column */}
