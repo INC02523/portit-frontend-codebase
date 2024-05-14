@@ -8,7 +8,7 @@ const Header = () => {
       className="bg-[#2c4b60] p-1 flex text-center"
     >
       <h2 className="text-sm md:text-2xl text-left text-white py-2 px-4">
-        PO to CPI Migration Tool
+        PO to IS Migration Tool
       </h2>
       {/* <a href="/">
 <li className="ml-4  hover:text-blue-500 group transition duration-300 list-none text-center">Home        

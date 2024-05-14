@@ -19,15 +19,17 @@ export const postApi = async (apiURL, toPostData) => {
 };
 
 export const handelTestConnection = (data, setDisableNext, setTestingConn) => {
+  
+  
   // ALERT DATA TO SHOW
   const alertShow = (type) => {
     if (type === "success") {
       toast.success("Connection Successful!", {
-        position: toast.POSITION.TOP_RIGHT,
+        position: toast.POSITION.BOTTOM_CENTER,
       });
     } else {
       toast.error("Connection Failed!", {
-        position: toast.POSITION.TOP_RIGHT,
+        position: toast.POSITION.BOTTOM_CENTER,
       });
     }
   };
@@ -72,7 +74,7 @@ export const handelTestConnection = (data, setDisableNext, setTestingConn) => {
             })
             .catch((error) => {
               toast.error("Connection Failed!- " + error.message, {
-                position: toast.POSITION.TOP_RIGHT,
+                position: toast.POSITION.BOTTOM_CENTER,
               });
               console.error("Error:", error);
               setTestingConn(false);
@@ -86,7 +88,7 @@ export const handelTestConnection = (data, setDisableNext, setTestingConn) => {
       })
       .catch((error) => {
         toast.error("Connection Failed!- " + error.message, {
-          position: toast.POSITION.TOP_RIGHT,
+          position: toast.POSITION.BOTTOM_CENTER,
         });
         console.error("Error:", error);
         setTestingConn(false);
@@ -125,7 +127,7 @@ export const handelTestConnection = (data, setDisableNext, setTestingConn) => {
       .catch((error) => {
         console.error("Error:", error);
         toast.error("Connection Failed!- " + error.message, {
-          position: toast.POSITION.TOP_RIGHT,
+          position: toast.POSITION.BOTTOM_CENTER,
         });
         setTestingConn(false);
       });
@@ -164,7 +166,7 @@ export const handelTestConnection = (data, setDisableNext, setTestingConn) => {
       })
       .catch((error) => {
         toast.error("Connection Failed!- " + error.message, {
-          position: toast.POSITION.TOP_RIGHT,
+          position: toast.POSITION.BOTTOM_CENTER,
         });
         console.error("Error:", error);
         setTestingConn(false);
@@ -172,7 +174,7 @@ export const handelTestConnection = (data, setDisableNext, setTestingConn) => {
   } else {
     // alert("API DATA MISSING - FAIL");
     toast.error("API DATA MISSING - FAIL", {
-      position: toast.POSITION.TOP_RIGHT,
+      position: toast.POSITION.BOTTOM_CENTER,
     });
     console.log("error in StepperAPI.js");
     setTestingConn(false);

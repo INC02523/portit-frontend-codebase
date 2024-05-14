@@ -121,7 +121,7 @@ function MigrationTool() {
                     <span className="text-gray-700">{names?.poName}</span>{" "}
                   </div>
                   <div>
-                    <span className="text-[#1f1f1f] font-semibold">CPI Tenant Name:</span>{" "}
+                    <span className="text-[#1f1f1f] font-semibold">IS Tenant Name:</span>{" "}
                     <span className="text-gray-700">{names?.cpiName}</span>
                   </div>
                 </div>
@@ -143,13 +143,13 @@ function MigrationTool() {
             )}
             <Link to="/payload-comparison">
               <div className="bg-[#2c4b60] hover:bg-[#3b6978] transition duration-400 text-xl font-bold text-center text-white hover:cursor-pointer hover:shadow-lg w-52 h-44 flex justify-center items-center">
-                PAYLOAD COMPARISON
+                AUTOMATED TESTING
               </div>
             </Link>
           </div>
         </div>
-      <ToastContainer />
-      <Dialog open={open} onClose={handleClose} maxWidth="sm">
+        <ToastContainer position="bottom-center" />      
+        <Dialog open={open} onClose={handleClose} maxWidth="sm">
         <DialogTitle>For Exception Subprocess</DialogTitle>
         <DialogContent sx={{ width: "600px", display: 'flex', flexDirection: 'column', gap: '8px' }}>
           <div>

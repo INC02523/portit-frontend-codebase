@@ -2,7 +2,7 @@ import React from "react";
 
 const Steps = ({ step, setStep, handleNext, handleBack }) => {
   return (
-    <div className="relative mt-4 w-full ">
+    <div className="relative mt-4 w-full">
       <div className="z-10 w-full grid grid-cols-4 gap-0 justify-between text-sm font-medium text-gray-500">
         <div
           className={`flex transition-all w-full justify-center duration-200 ease-in-out  items-center gap-2 bg-white py-2 pr-2 ${
@@ -61,7 +61,7 @@ const Steps = ({ step, setStep, handleNext, handleBack }) => {
             3
           </span>
 
-          <span className="hidden md:block"> CPI Details </span>
+          <span className="hidden md:block">IS Details </span>
           <span
             className={` xl:32 lg:w-20 hidden sm:block md:w-15 sm:w-6 transition-all duration-300 ease-in-out border-b-2 ${
               step > 3 ? "border-[#2c4b60]" : "border-[#d1e3f8]"

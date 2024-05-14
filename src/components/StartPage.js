@@ -38,7 +38,7 @@ const StartPage = () => {
               <span className="shine">T</span>
             </h1>
             <h2 className="text-xl mb-4 ml-10 text-[#2c4b60]">
-              SAP PO 7.5 to CPI Migration Simplified
+              SAP PO 7.5 to IS Migration Simplified
             </h2>
             <Link to="/home">
               <button className="bg-[#2c4b60] text-white rounded-full py-3 px-8 text-lg font-semibold ml-8 hover:bg-[#3b6978] transition-colors duration-300">

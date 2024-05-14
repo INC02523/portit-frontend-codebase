@@ -176,7 +176,7 @@ function MigrationProcess() {
       const response = await axios.post(endpoint, postData);
   
       if (response && selectedOption === 'icos') {
-        setResponseData(response?.data?.responses);
+        setResponseData(response?.data?.icoDetailsList);
         setReportUrl(response?.data?.reportBase64);
         setResponseAvailable(true);
       }
@@ -322,7 +322,7 @@ function MigrationProcess() {
                     <th scope="col" className="px-6 py-3 text-xs font-medium text-black uppercase tracking-wider border border-gray-300 text-center" style={{ width: "100px" }}>Sl NO.</th>
                     <th scope="col" className="px-6 py-3 text-xs font-medium text-black uppercase tracking-wider border border-gray-300 text-center" style={{ width: "100px" }}>iFlow Name</th>
                     <th scope="col" className="px-6 py-3 text-center text-xs font-bold text-black uppercase tracking-wider border border-gray-300">Description</th>
-                    <th>Edit</th>
+                    <th scope="col" className="px-6 py-3 text-center text-xs font-bold text-black uppercase tracking-wider border border-gray-300">Edit</th>
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
@@ -379,7 +379,7 @@ function MigrationProcess() {
 
               </DialogActions>
             </Dialog>
-            <ToastContainer />
+            <ToastContainer position="bottom-center"/>
             {loading && (
               <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
                 <CircularProgress />

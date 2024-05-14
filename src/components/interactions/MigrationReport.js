@@ -3,12 +3,15 @@ import { TableCell } from '@mui/material';
 import { CheckCircle, Cancel } from '@mui/icons-material';
 
 const MigrationReport = ({ isOpen, onClose, responseData, reportBase64 }) => {
+  
   const [search, setSearch] = useState('');
-
-  const filteredData = responseData.filter(response  => {
-    return response.message.toLowerCase().includes(search.toLowerCase()) || response.payload.toLowerCase().includes(search.toLowerCase()) ||
-    response.status.toLowerCase().includes(search.toLowerCase());
+  console.log("response data", responseData)
+  const filteredData = responseData?.filter(response  => {
+    return response?.message?.toLowerCase()?.includes(search?.toLowerCase()) || response?.payload?.toLowerCase()?.includes(search?.toLowerCase()) ||
+    response?.status?.toLowerCase()?.includes(search?.toLowerCase());
   })
+
+  console.log(filteredData)
   const downloadReport = () => {
     const blob = b64toBlob(reportBase64, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
     const url = URL.createObjectURL(blob);
@@ -71,13 +74,13 @@ const MigrationReport = ({ isOpen, onClose, responseData, reportBase64 }) => {
                         </tr>
                       </thead>
                       <tbody className="bg-white divide-y divide-gray-200">
-                          {filteredData.map((response, index) => (
+                          {filteredData?.map((response, index) => (
                               <tr key={index} className={response.status === 'Success' ? 'bg-green-100' : 'bg-red-100'}>
                               <td className="px-6 py-4 whitespace-wrap border border-gray-300" style={{ wordWrap: 'break-word' }}>
-                                <div className="text-sm text-gray-900">{response.payload}</div>
+                                <div className="text-sm text-gray-900">{response?.icoKey}</div>
                               </td>
                               <td className="px-6 py-4 whitespace-wrap border border-gray-300 text-center">
-                                <div className="text-sm text-gray-900">{response.message}</div>
+                                <div className="text-sm text-gray-900">{response?.message}</div>
                               </td>
                               <td className="px-6 py-4 whitespace-wrap border border-gray-300" >
                                 <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' , lineHeight: '1.5rem' }}>

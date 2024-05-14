@@ -67,14 +67,14 @@ const Configuration = () => {
   {!agents || agents.length <= 0 ? (
     <div className="py-8 text-lg">
       <p className="mb-4">
-        <span className="font-bold text-lg">POrtIT</span> facilitates the seamless migration of integrations from SAP PO 7.5 to CPI through an interactive user interface. This migration tool is crafted to drastically reduce manual migration efforts and eliminate the possibility of human error in the process.
+        <span className="font-bold text-lg">POrtIT</span> facilitates the seamless migration of integrations from SAP PO 7.5 to IS through an interactive user interface. This migration tool is crafted to drastically reduce manual migration efforts and eliminate the possibility of human error in the process.
       </p>
       <p className="mb-4">
         <span className="font-bold">Salient Features</span>
         <ul className="list-disc pl-6">
           <li>Significant reduction in migration effort.</li>
           <li>Migrate multiple integrations simultaneously.</li>
-          <li>Automated migration of PO 7.5 integrations to CPI.</li>
+          <li>Automated migration of PO 7.5 integrations to IS.</li>
           <li>Dynamic migration templates automatically applied by POrtIT.</li>
           <li>Migration report to validate the migrated and non-migrated components.</li>
           <li>Automatic implementation of error handling and payload logging across all integrations.</li>
@@ -102,8 +102,8 @@ const Configuration = () => {
                   </th>
                   <th>PO Tenant</th>
                   <th>PO Environment</th>
-                  <th>CPI Tenant</th>
-                  <th>CPI Environment</th>
+                  <th>IS Tenant</th>
+                  <th>IS Environment</th>
                   <th></th>
                   <th></th>
                 </tr>
