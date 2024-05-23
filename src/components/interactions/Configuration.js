@@ -65,9 +65,9 @@ const Configuration = () => {
 
 <div className="mt-4 text-gray-500">
   {!agents || agents.length <= 0 ? (
-    <div className="py-8 text-lg">
+    <div className="py-8 text-lg mt-10">
       <p className="mb-4">
-        <span className="font-bold text-lg">POrtIT</span> facilitates the seamless migration of integrations from SAP PO 7.5 to IS through an interactive user interface. This migration tool is crafted to drastically reduce manual migration efforts and eliminate the possibility of human error in the process.
+        <span className="font-bold text-lg">Integration Workbench</span> facilitates the seamless migration of integrations from SAP PO 7.5 to IS through an interactive user interface. This migration tool is crafted to drastically reduce manual migration efforts and eliminate the possibility of human error in the process.
       </p>
       <p className="mb-4">
         <span className="font-bold">Salient Features</span>
@@ -75,7 +75,7 @@ const Configuration = () => {
           <li>Significant reduction in migration effort.</li>
           <li>Migrate multiple integrations simultaneously.</li>
           <li>Automated migration of PO 7.5 integrations to IS.</li>
-          <li>Dynamic migration templates automatically applied by POrtIT.</li>
+          <li>Dynamic migration templates automatically applied by Integration Workbench.</li>
           <li>Migration report to validate the migrated and non-migrated components.</li>
           <li>Automatic implementation of error handling and payload logging across all integrations.</li>
           <li>Migration support for components not available in SAP Migration - Value Mapping, Encoding-Decoding etc.</li>

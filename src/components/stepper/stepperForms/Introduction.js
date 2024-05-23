@@ -9,25 +9,25 @@ const Introduction = () => {
           Welcome to the Tenant Setup Wizard
         </Typography>
         <Typography variant="body1" paragraph>
-        This wizard will guide you through the setup process to connect PO 7.5 and IS with POrtIT
+        This wizard will guide you through the setup process to connect PO 7.5 and IS with Integration Workbench.
         </Typography>
         <List>
           <ListItem disablePadding>
             <ListItemText
               primary="Step 1: Introduction"
-              secondary="Provides the guidelines to configure and connect PO 7.5 and IS with POrtIT."
+              secondary="Provides the guidelines to configure and connect PO 7.5 and IS with Integration Workbench."
             />
           </ListItem>
           <ListItem disablePadding>
             <ListItemText
               primary="Step 2: Process Orchestration"
-              secondary="Configure POrtIT to connect with the PO 7.5 tenant and test connectivity."
+              secondary="Configure Integration Workbench to connect with the PO 7.5 tenant and test connectivity."
             />
           </ListItem>
           <ListItem disablePadding>
             <ListItemText
               primary="Step 3: SAP Integration Suite"
-              secondary="Configure POrtIT to connect with the IS tenant and test connectivity."
+              secondary="Configure Integration Workbench to connect with the IS tenant and test connectivity."
             />
           </ListItem>
           <ListItem disablePadding>

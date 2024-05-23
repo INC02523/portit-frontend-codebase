@@ -5,7 +5,7 @@ const Steps = ({ step, setStep, handleNext, handleBack }) => {
     <div className="relative mt-4 w-full">
       <div className="z-10 w-full grid grid-cols-4 gap-0 justify-between text-sm font-medium text-gray-500">
         <div
-          className={`flex transition-all w-full justify-center duration-200 ease-in-out  items-center gap-2 bg-white py-2 pr-2 ${
+          className={`flex transition-all w-full justify-center duration-200 ease-in-out items-center gap-2 bg-white py-2 pr-2 ${
             step >= 1 &&
             "border-b-2 shadow-[5px_5px_5px_0px_rgba(48,38,185,0.3)]  border-[#2c4b60] cursor-pointer"
           }`}

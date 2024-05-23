@@ -15,7 +15,7 @@ import StartPageTwo from "./components/StartPageTwo";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <StartPage />,
+    element: <StartPageTwo/>,
   },
   {
     path: "/home",

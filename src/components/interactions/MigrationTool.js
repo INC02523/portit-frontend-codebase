@@ -70,8 +70,8 @@ function MigrationTool() {
       const response = await axios.post("http://localhost:8080/api/v1/migration/designtime/create/exception/adapter", postData);
       if (response.status === 200) {
         const currAgent = JSON.parse(localStorage.getItem("currAgent"));
-    const updatedCurrAgent = { ...currAgent, adapter: dropdownValue };
-    localStorage.setItem("currAgent", JSON.stringify(updatedCurrAgent));
+        const updatedCurrAgent = { ...currAgent, adapter: dropdownValue };
+        localStorage.setItem("currAgent", JSON.stringify(updatedCurrAgent));
         setDropdownValue([]);
         setSelectedPackage(null);
         setInputValue('');
@@ -131,21 +131,21 @@ function MigrationTool() {
 
           <div className="md:mt-8 mt-7 md:w-[95%] md:mx-auto flex flex-col md:flex-row w-[70%] mx-auto justify-center gap-12 items-center font-serif py-6 bg-[#f5f5f5]">
             {names?.adapters?.length === 0 ? (
-              <button className="bg-[#2c4b60] hover:bg-[#3b6978] transition duration-400 text-xl font-bold text-center text-white hover:cursor-pointer hover:shadow-lg w-52 h-44 flex justify-center items-center" onClick={handleOpen}>
+              <button className="bg-[#2c4b60] hover:bg-[#3b6978] transition duration-400 text-xl font-bold text-center text-white hover:cursor-pointer hover:shadow-lg w-52 h-44 flex justify-center items-center rounded" onClick={handleOpen}>
                 MIGRATION PROCESS
               </button>
             ) : (
               <Link to="/migration-process">
-                <button className="bg-[#2c4b60] hover:bg-[#3b6978] transition duration-400 text-xl font-bold text-center text-white hover:cursor-pointer hover:shadow-lg w-52 h-44 flex justify-center items-center">
+                <button className="bg-[#2c4b60] hover:bg-[#3b6978] transition duration-400 text-xl font-bold text-center text-white hover:cursor-pointer hover:shadow-lg w-52 h-44 flex justify-center items-center rounded">
                   MIGRATION PROCESS
                 </button>
               </Link>
             )}
-            <Link to="/payload-comparison">
+            {/* <Link to="/payload-comparison">
               <div className="bg-[#2c4b60] hover:bg-[#3b6978] transition duration-400 text-xl font-bold text-center text-white hover:cursor-pointer hover:shadow-lg w-52 h-44 flex justify-center items-center">
                 AUTOMATED TESTING
               </div>
-            </Link>
+            </Link> */}
           </div>
         </div>
         <ToastContainer position="bottom-center" />      

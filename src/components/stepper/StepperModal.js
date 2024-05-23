@@ -81,7 +81,7 @@ const StepperModal = ({
     <div
       tabIndex={-1}
       aria-hidden="true"
-      className="fixed top-0 left-0 right-0 z-50  w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-0rem)] max-h-full bg-opacity-50 bg-black"
+      className="fixed top-0 left-0 right-0 z-50  w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-0rem)] max-h-full bg-opacity-50 bg-black z-50"
     >
       <div className="relative mx-auto my-16 md:w-[70%] sm:w-[90%] w-[100%]   max-h-full">
         {/* Modal content */}
